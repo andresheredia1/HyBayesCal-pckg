@@ -1,0 +1,13 @@
+[2024-02-23 16:23:15,504] INFO: Importing data from Excel: /home/amintvm/modeling/HyBayesCal-pckg/use-case-xlsx/tm-user-input_parameters.xlsx
+[2024-02-23 16:23:17,484] INFO: The selected input parameters are >>>>> {'init_runs': 4, 'CALIB_PTS': '/home/amintvm/modeling/hybayescalpycourse/examples/donau/Bal-data//calibration-pts.csv', 'AL_STRATEGY': 'Relative Entropy (RE)', 'score_method': 'Bayesian weighting', 'IT_LIMIT': 100, 'AL_SAMPLES': 1000, 'MC_SAMPLES': 10000, 'MC_SAMPLES_AL': 10000, 'TM_CAS': '2dsteady.cas', 'SIM_DIR': '/home/amintvm/modeling/HyBayesCal-pckg/simulationxxxx/', 'tm_xD': 'Telemac2d', 'N_CPUS': 2, 'init_run_sampling': 'MIN - random - MAX', 'calib_param_range': [0.01, 0.1], 'CALIB_TARGETS': ['DEPTH']}
+[2024-02-23 16:23:17,484] INFO: Creating 4 .cas files for surrogate model construction >>>>>> .....
+[2024-02-23 16:23:17,484] INFO: Starting multiple run simulation...
+[2024-02-23 16:23:17,484] INFO: RUNNING .cas FILE>>> 2dsteady-1.cas
+[2024-02-23 16:26:04,698] INFO: .slf and .txt files for: '/home/amintvm/modeling/HyBayesCal-pckg/simulationxxxx/r2dsteady-1.slf' copied to >>>>>> auto-saved-results.
+[2024-02-23 16:26:04,698] INFO: RUNNING .cas FILE>>> 2dsteady-2.cas
+[2024-02-23 16:29:04,750] INFO: .slf and .txt files for: '/home/amintvm/modeling/HyBayesCal-pckg/simulationxxxx/r2dsteady-2.slf' copied to >>>>>> auto-saved-results.
+[2024-02-23 16:29:04,750] INFO: RUNNING .cas FILE>>> 2dsteady-3.cas
+[2024-02-23 16:31:37,850] INFO: .slf and .txt files for: '/home/amintvm/modeling/HyBayesCal-pckg/simulationxxxx/r2dsteady-3.slf' copied to >>>>>> auto-saved-results.
+[2024-02-23 16:31:37,850] INFO: RUNNING .cas FILE>>> 2dsteady-4.cas
+[2024-02-23 16:34:08,464] INFO: .slf and .txt files for: '/home/amintvm/modeling/HyBayesCal-pckg/simulationxxxx/r2dsteady-4.slf' copied to >>>>>> auto-saved-results.
+[2024-02-23 16:34:10,941] INFO: Output *.xlsx file simulation_outputs.xlsx created in >>>>>> auto-saved-results.
