@@ -30,9 +30,7 @@ https://github.com/andresheredia1/HyBayesCal-pckg.git
 
 
 ## Requirements
-To use this Python package, we have decided to use a Linux Mint operating system which is a popular and user-friendly Linux distribution. One of the main reasons why the package runs in Linux is because Telemac is primarily developed and tested on Linux-based systems. It gives us the flexibility for configuring the environment and optimizing settings for Telemac simulations while providing a powerful command-line interface, which is well-suited for running batch simulations, automating tasks which improves the productivity of the code when managing large data sets. 
-
-The creation of a virtual machine with the following characteristics is required:
+To use this Python package, we have decided to use a Linux Mint operating system which is a popular and user-friendly Linux distribution. One of the main reasons why the package runs in Linux is because Telemac is primarily developed and tested on Linux-based systems. It gives us the flexibility for configuring the environment and optimizing settings for Telemac simulations while providing a powerful command-line interface, which is well-suited for running batch simulations, automating tasks which improves the productivity of the code when managing large data sets. The creation of a virtual machine with the following characteristics is required:
 
 
 ### Virtual Machine
