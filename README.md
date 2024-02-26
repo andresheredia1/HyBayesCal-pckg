@@ -48,6 +48,11 @@ The Virtual Machine configuration for this project is detailed below. For furthe
   * pandas
   * scikit-learn
 
+##Installation and run a project 
+
+Firstly, download the package and copy it to a desired folder. The download version of the package has some folders and scripts  which are explained in detail in the following lines: 
+Once you download the package you will see these folders. 
+
 ## Usage Instructions
 To use this package, ensure the mentioned software and Python libraries are installed:
 * Upon the initial launch of the VM, the first essential task is to update the system (which should be performed periodically):
