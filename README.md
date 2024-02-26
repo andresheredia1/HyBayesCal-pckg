@@ -111,11 +111,18 @@ Bayesian Calibration Package. In this folder you will find the following python 
 #### **config.py**
 Python script that contains all the necessary file paths and variables. Change these according to the following comments:
 
-*input_worbook_name =* Name of *.xlsx file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
-*activateTM_path =* Path to the Telemac activation file (“home/… /… /HyBayesCal-pckg/env-scripts/activateTM.sh”)
-*results_filename_base =* Write this according to how it is written in the .cas base file. Do not add the extension. 
-*output_excel_file_name=* Choose a name for the **.xlsx output file which is saved in auto-saved-results.
+1. *input_worbook_name =* Name of *.xlsx file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
+2. *activateTM_path =* Path to the Telemac activation file (“home/… /… /HyBayesCal-pckg/env-scripts/activateTM.sh”)
+3. *results_filename_base =* Write this according to how it is written in the .cas base file. Do not add the extension. 
+4. *output_excel_file_name=* Choose a name for the **.xlsx output file which is saved in auto-saved-results.
 
+### **file_creator.py**
+Python script that has two functions: 
+
+1.	**cas_creator:** Creates the required number .cas files based on a standard (base) .cas file. For this project,  .cas files are created based on random friction coefficients with a fixed range of values extracted from the input parameters excel file ***.xlsx from Use-case-xlsx folder. Since every .cas file and calibration parameter might be different, the code block denoted as : (## This code block should be changed according to the used .cas base file.)  in this python script should be modified according to the .cas base file.
+
+Additionally, returns a list of the random parameters that were used to create the .cas files and a list of the output *.slf files’ paths. 
+2.	**sim_output_df:** Creates a data frame of the model outputs and saves it as an excel file in the auto-saved-results. 
 
 
 * Run Telemac 
