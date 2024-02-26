@@ -73,15 +73,15 @@ Once you downloaded the package you will see these folders.
 The creation of a virtual environment to run the package is required. The downloaded version of the package has already an environment folder called HBCenv, however you can also create a new one called HBCenv with all the necessary requirements shown in the file requirementsHBCenv.txt. 
 
 To do so, navigate to the folder you have copied the package (i.e. HyBayesCal-pckg) using a Linux terminal and create the virtual environment as follows:
-```bash
+```
 python3 -m venv HBCenv
 ```
 After creating the environment, activate it by typing:
-```bash
+```
 cd HBCenv/bin/activate
 ```
 Once the environment has been activated, install all the requirements according to requirementsHBCenv.txt file. 
-```bash
+```
 pip install package_name
 ```
 ## Folders and Files 
