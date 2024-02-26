@@ -66,7 +66,7 @@ cd HBCenv/bin/activate
 Once the environment has been activated, install all the requirements according to  requirementsHBCenv.txt.
 ```bash
 pip install package_name
-
+```
 
 ## Usage Instructions
 To use this package, ensure the mentioned software and Python libraries are installed:
