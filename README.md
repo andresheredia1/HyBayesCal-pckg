@@ -148,10 +148,11 @@ This python script owns a class called TelemacSimulations. The methods in this c
 2.	**import_excel_file:** Imports the necessary user input parameters for Bayesian calibration purposes from the user input parameters excel file **.xlsx.
 
 #### **bayesian_gpe.py**
+---
 Contains a class and methods for running a stochastic calibration of a deterministic model by using a Gaussian process emulator (GPE) - based surrogate model that is fitted through Bayesian active learning (BAL).
 
- 
 #### **active_learning.py**
+---
 Auxiliary functions for the stochastic calibration of model using Surrogate-Assisted Bayesian inversion
 
 
