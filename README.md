@@ -21,8 +21,8 @@ The project focuses on three main tasks:
 * Performing statistical analysis from the data obtained from the Telemac output files .slf
 
 GitHub Repository URL
-`https://github.com/andresheredia1/hybayescalpycourse`
-`https://github.com/andresheredia1/HyBayesCal-pckg.git`
+```https://github.com/andresheredia1/hybayescalpycourse```
+```https://github.com/andresheredia1/HyBayesCal-pckg.git```
 
 
 ## Requirements
