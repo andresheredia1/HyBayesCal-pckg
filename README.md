@@ -87,15 +87,34 @@ pip install package_name
 ### env-scripts
 This folder contains the .sh files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package, you open each file and modify the directories based on your system. 
 
-This folder contains the .sh files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package, you open each file and modify the directories based on your system. 
+This folder contains the bash .sh files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package, you open each file and modify the directories based on your system. 
 
-**activateHBCtelemac.sh**
+**activateHBCtelemac.sh**: Bash file that activates Telemac and the Python environment for the first run. Change the paths according to the following recommendations. 
 
-1. *TELEMAC_CONFIG_DIR=/full/path/to/configs/folder/in/telemac*
+1. *TELEMAC_CONFIG_DIR=/full/path/to/**configs**/folder/in/telemac*
 
-2. *TELEMAC_CONFIG_NAME= Name of Telemac compiler bash script .sh pysource.template.sh (i.e. pysource.gfortranHPC.sh).*
+2. *TELEMAC_CONFIG_NAME= Name of Telemac compiler bash script .sh **pysource.template.sh** (i.e. pysource.gfortranHPC.sh).*
 
 3. *HBCenv_DIR=/full/path/to/HBCenv*
+
+**activateTM.sh**: Bash file that activates Telemac.
+Modify *TELEMAC_CONFIG_DIR=* and *TELEMAC_CONFIG_NAME=* as mentioned above. 
+
+**Tip:** Make sure to test a single Telemac simulation from telemac/examples/. You can refer to Telemac Installation Guide if help needed at: [OpenTelemac.org](http://wiki.opentelemac.org/doku.php?id=installation_on_linux)
+
+### HBCenv
+Folder containing the Python virtual environment. As explained before, this folder has the required python libraries to run the code. 
+
+### HyBayesCal
+Bayesian Calibration Package. In this folder you will find the following python scripts: 
+
+_**config.py**_
+Python script that contains all the necessary file paths and variables. Change these according to the following comments:
+input_worbook_name = Name of *.xlsx file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
+activateTM_path = Path to the Telemac activation file (“home/… /… /HyBayesCal-pckg/env-scripts/activateTM.sh”)
+results_filename_base = Write this according to how it is written in the .cas base file. Do not add the extension. 
+output_excel_file_name= Choose a name for the **.xlsx output file which is saved in auto-saved-results.
+
 
 
 * Run Telemac 
