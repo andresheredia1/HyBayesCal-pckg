@@ -105,21 +105,21 @@ Modify *TELEMAC_CONFIG_DIR=* and *TELEMAC_CONFIG_NAME=* as mentioned above.
 **Tip:** Make sure to test a single Telemac simulation from telemac/examples/. You can refer to Telemac Installation Guide if help needed at: [OpenTelemac.org](http://wiki.opentelemac.org/doku.php?id=installation_on_linux)
 
 ### HBCenv
-- Folder containing the Python virtual environment. As explained before, this folder has the required python libraries to run the code.
+Folder containing the Python virtual environment. As explained before, this folder has the required python libraries to run the code.
 - 
 ### HyBayesCal
-- Bayesian Calibration Package. In this folder you will find the following python scripts: 
----
+Bayesian Calibration Package. In this folder you will find the following python scripts: 
+
 #### `config.py`
-- Python script that contains all the necessary file paths and variables. Change these according to the following comments:
+Python script that contains all the necessary file paths and variables. Change these according to the following comments:
 
 1. *input_worbook_name =* Name of *.xlsx file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
 2. *activateTM_path =* Path to the Telemac activation file (“home/… /… /HyBayesCal-pckg/env-scripts/activateTM.sh”)
 3. *results_filename_base =* Write this according to how it is written in the .cas base file. Do not add the extension. 
 4. *output_excel_file_name=* Choose a name for the **.xlsx output file which is saved in auto-saved-results.
 ---
-#### **file_creator.py**
-- Python script that has two functions: 
+#### `file_creator.py`
+Python script that has two functions: 
 
 1.	**cas_creator:** Creates the required number .cas files based on a standard (base) .cas file. For this project,  .cas files are created based on random friction coefficients with a fixed range of values extracted from the input parameters excel file ***.xlsx from Use-case-xlsx folder. Since every .cas file and calibration parameter might be different, the code block denoted as : (## This code block should be changed according to the used .cas base file.)  in this python script should be modified according to the .cas base file.
 
@@ -127,30 +127,30 @@ Additionally, returns a list of the random parameters that were used to create t
 
 2.	**sim_output_df:** Creates a data frame of the model outputs and saves it as an excel file in the auto-saved-results. 
 ---
-#### **filter_plot.py**
-- Python script that extracts data (calibration quantity) from the model outputs dataframe for specific nodes where measured data is available. 
+#### `filter_plot.py`
+Python script that extracts data (calibration quantity) from the model outputs dataframe for specific nodes where measured data is available. 
 Python script that plots the values of the calibration quantity for the calibration nodes.  
 ---
-#### **log_functions.py**
+#### `log_functions.py`
 - Python scripts that logs the actions to a logfile (logfile.log). The logfile is saved in: *log_directory*  
 ---
-#### **main.py**
+#### `main.py`
 - Python script that should be called from Linux terminal. It executes two actions: 
 1. **import_input_parameters:** Imports the user input parameters from the input parameter excel file.  
 2. **multiple_run_simulation:** Runs Telemac simulations multiple times as the basis for surrogate model construction. 
 
 This script works by executing subprocesses of the file called package_launcher.py.  
 ---
-#### **package_launcher.py**
+#### `package_launcher.py`
 - This python script owns a class called TelemacSimulations. The methods in this class are:
 1. **single_run_simulation:** Runs a single Telemac simulation and extracts the output values as a .txt file of the selected calibration parameter at the last time step of the simulation. 
 2.	**import_excel_file:** Imports the necessary user input parameters for Bayesian calibration purposes from the user input parameters excel file **.xlsx.
 ---
-#### **bayesian_gpe.py**
+#### `bayesian_gpe.py`
 
 Contains a class and methods for running a stochastic calibration of a deterministic model by using a Gaussian process emulator (GPE) - based surrogate model that is fitted through Bayesian active learning (BAL).
 --
-#### **active_learning.py**
+#### `active_learning.py`
 
 Auxiliary functions for the stochastic calibration of model using Surrogate-Assisted Bayesian inversion
 
