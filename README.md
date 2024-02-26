@@ -116,14 +116,22 @@ Python script that contains all the necessary file paths and variables. Change t
 3. *results_filename_base =* Write this according to how it is written in the .cas base file. Do not add the extension. 
 4. *output_excel_file_name=* Choose a name for the **.xlsx output file which is saved in auto-saved-results.
 
-### **file_creator.py**
+#### **file_creator.py**
 Python script that has two functions: 
 
 1.	**cas_creator:** Creates the required number .cas files based on a standard (base) .cas file. For this project,  .cas files are created based on random friction coefficients with a fixed range of values extracted from the input parameters excel file ***.xlsx from Use-case-xlsx folder. Since every .cas file and calibration parameter might be different, the code block denoted as : (## This code block should be changed according to the used .cas base file.)  in this python script should be modified according to the .cas base file.
 
 Additionally, returns a list of the random parameters that were used to create the .cas files and a list of the output *.slf files’ paths. 
+
 2.	**sim_output_df:** Creates a data frame of the model outputs and saves it as an excel file in the auto-saved-results. 
 
+#### **filter_plot.py**
+
+Python script that extracts data (calibration quantity) from the model outputs dataframe for specific nodes where measured data is available. 
+Python script that plots the values of the calibration quantity for the calibration nodes.  
+
+#### **log_functions.py**
+Python scripts that logs the actions to a logfile (logfile.log). The logfile is saved in: *log_directory*  
 
 * Run Telemac 
   * To run Telemac simulations, ensure that Telemac is installed. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation).
