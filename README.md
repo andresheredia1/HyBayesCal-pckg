@@ -56,15 +56,15 @@ To use this package, ensure the previously mentioned software and Python librari
 * Upon the initial launch of the VM, the first essential task is to update the system (which should be performed periodically):
   * Open Terminal.
   * Enter the command: `sudo apt update`
-  * Execute: `sudo apt full-upgrade`.
+  * Execute: `sudo apt-get full-upgrade`.
   * Conclude with: `sudo apt autoremove` to remove outdated packages.
 * If any required software is missing, install it using the command
   ```
-  sudo apt install app_name
+  sudo apt-get install app_name
   ``` 
 * Conversely, if you need to uninstall a software use the command, (make sure to change the `app_name` with software name)
   ```
-  sudo apt install app_name
+  sudo apt-get remove app_name
   ```
 Download the package and copy it to a desired folder. The download version of the package has some folders and scripts  which are explained in detail in the following lines. 
 Once you downloaded the package you will see these folders. 
