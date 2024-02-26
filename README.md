@@ -48,10 +48,25 @@ The Virtual Machine configuration for this project is detailed below. For furthe
   * pandas
   * scikit-learn
 
-##Installation and run a project 
+## Installation and run a project 
 
 Firstly, download the package and copy it to a desired folder. The download version of the package has some folders and scripts  which are explained in detail in the following lines: 
-Once you download the package you will see these folders. 
+Once you downloaded the package you will see these folders. 
+[figure 1]
+
+The creation of a virtual environment to run the package is required. The downloaded version of the package has already an environment folder called HBCenv, however you can also create a new one called HBCenv with all the necessary requirements shown in the file requirementsHBCenv.txt. 
+To do so, navigate to the folder you have copied the package (i.e. HyBayesCal-pckg) using a Linux terminal and create the virtual environment as follows:
+
+python3 -m venv HBCenv
+
+After creating the environment, activate it by typing:
+```bash
+cd HBCenv/bin/activate
+
+Once the environment has been activated, install all the requirements according to  requirementsHBCenv.txt.
+```bash
+pip install package_name
+
 
 ## Usage Instructions
 To use this package, ensure the mentioned software and Python libraries are installed:
