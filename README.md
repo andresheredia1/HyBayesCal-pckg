@@ -108,7 +108,7 @@ Folder containing the Python virtual environment. As explained before, this fold
 ### HyBayesCal
 Bayesian Calibration Package. In this folder you will find the following python scripts: 
 
-_**config.py**_
+#### **config.py**
 Python script that contains all the necessary file paths and variables. Change these according to the following comments:
 input_worbook_name = Name of *.xlsx file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
 activateTM_path = Path to the Telemac activation file (“home/… /… /HyBayesCal-pckg/env-scripts/activateTM.sh”)
