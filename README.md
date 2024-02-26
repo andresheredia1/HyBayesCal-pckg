@@ -133,6 +133,26 @@ Python script that plots the values of the calibration quantity for the calibrat
 #### **log_functions.py**
 Python scripts that logs the actions to a logfile (logfile.log). The logfile is saved in: *log_directory*  
 
+#### **main.py**
+Python script that should be called from Linux terminal. It executes two actions: 
+1. **import_input_parameters:** Imports the user input parameters from the input parameter excel file.  
+2. **multiple_run_simulation:** Runs Telemac simulations multiple times as the basis for surrogate model construction. 
+
+This script works by executing subprocesses of the file called package_launcher.py.  
+
+#### **package_launcher.py**
+This python script owns a class called TelemacSimulations. The methods in this class are:
+1. **single_run_simulation:** Runs a single Telemac simulation and extracts the output values as a .txt file of the selected calibration parameter at the last time step of the simulation. 
+2.	**import_excel_file:** Imports the necessary user input parameters for Bayesian calibration purposes from the user input parameters excel file **.xlsx.
+
+#### **bayesian_gpe.py**
+Contains a class and methods for running a stochastic calibration of a deterministic model by using a Gaussian process emulator (GPE) - based surrogate model that is fitted through Bayesian active learning (BAL).
+
+ 
+#### **active_learning.py**
+Auxiliary functions for the stochastic calibration of model using Surrogate-Assisted Bayesian inversion
+
+
 * Run Telemac 
   * To run Telemac simulations, ensure that Telemac is installed. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation).
   * To run multiple Telemac simulations, follow these steps:
