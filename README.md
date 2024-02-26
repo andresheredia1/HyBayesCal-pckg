@@ -84,9 +84,16 @@ pip install package_name
 ```
 ## Folders and Files 
 
-## Usage Instructions
 ### env-scripts
 This folder contains the .sh files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package, you open each file and modify the directories based on your system. 
+
+This folder contains the .sh files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package, you open each file and modify the directories based on your system. 
+
+activateHBCtelemac.sh
+TELEMAC_CONFIG_DIR=/full/path/to/configs/folder/in/telemac
+TELEMAC_CONFIG_NAME= Name of Telemac compiler bash script .sh pysource.template.sh (i.e. pysource.gfortranHPC.sh). 
+HBCenv_DIR=/full/path/to/HBCenv
+
 
 * Run Telemac 
   * To run Telemac simulations, ensure that Telemac is installed. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation).
