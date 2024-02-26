@@ -89,8 +89,9 @@ This folder contains the .sh files to activate Telemac and HBCenv environments, 
 
 This folder contains the .sh files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package, you open each file and modify the directories based on your system. 
 
-activateHBCtelemac.sh
-TELEMAC_CONFIG_DIR=/full/path/to/configs/folder/in/telemac
+**activateHBCtelemac.sh**
+
+[x]TELEMAC_CONFIG_DIR=/full/path/to/configs/folder/in/telemac
 TELEMAC_CONFIG_NAME= Name of Telemac compiler bash script .sh pysource.template.sh (i.e. pysource.gfortranHPC.sh). 
 HBCenv_DIR=/full/path/to/HBCenv
 
