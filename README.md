@@ -105,12 +105,15 @@ Modify *TELEMAC_CONFIG_DIR=* and *TELEMAC_CONFIG_NAME=* as mentioned above.
 **Tip:** Make sure to test a single Telemac simulation from telemac/examples/. You can refer to Telemac Installation Guide if help needed at: [OpenTelemac.org](http://wiki.opentelemac.org/doku.php?id=installation_on_linux)
 
 ### HBCenv
+-
 Folder containing the Python virtual environment. As explained before, this folder has the required python libraries to run the code. 
 
 ### HyBayesCal
+-
 Bayesian Calibration Package. In this folder you will find the following python scripts: 
 
 #### **config.py**
+-
 Python script that contains all the necessary file paths and variables. Change these according to the following comments:
 
 1. *input_worbook_name =* Name of *.xlsx file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
