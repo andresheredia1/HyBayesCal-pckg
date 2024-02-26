@@ -128,12 +128,15 @@ Additionally, returns a list of the random parameters that were used to create t
 2.	**sim_output_df:** Creates a data frame of the model outputs and saves it as an excel file in the auto-saved-results. 
 ---
 #### `filter_plot.py`
+
 Python script that extracts data (calibration quantity) from the model outputs dataframe for specific nodes where measured data is available. 
 Python script that plots the values of the calibration quantity for the calibration nodes.  
 ---
+
 #### `log_functions.py`
-- Python scripts that logs the actions to a logfile (logfile.log). The logfile is saved in: *log_directory*  
+Python scripts that logs the actions to a logfile (logfile.log). The logfile is saved in: *log_directory*  
 ---
+
 #### `main.py`
 - Python script that should be called from Linux terminal. It executes two actions: 
 1. **import_input_parameters:** Imports the user input parameters from the input parameter excel file.  
@@ -141,15 +144,18 @@ Python script that plots the values of the calibration quantity for the calibrat
 
 This script works by executing subprocesses of the file called package_launcher.py.  
 ---
+
 #### `package_launcher.py`
 - This python script owns a class called TelemacSimulations. The methods in this class are:
 1. **single_run_simulation:** Runs a single Telemac simulation and extracts the output values as a .txt file of the selected calibration parameter at the last time step of the simulation. 
 2.	**import_excel_file:** Imports the necessary user input parameters for Bayesian calibration purposes from the user input parameters excel file **.xlsx.
 ---
+
 #### `bayesian_gpe.py`
 
 Contains a class and methods for running a stochastic calibration of a deterministic model by using a Gaussian process emulator (GPE) - based surrogate model that is fitted through Bayesian active learning (BAL).
 --
+
 #### `active_learning.py`
 
 Auxiliary functions for the stochastic calibration of model using Surrogate-Assisted Bayesian inversion
