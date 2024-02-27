@@ -170,7 +170,8 @@ This folder contains the ***.xlsx file which holds the user input parameters for
 The **.xlsx file has three main sections to insert data. *TELEMAC*, *ACTIVE LEARNING*, *DEFINE PRIOR DISTRIBUTIONS*. For now, the code runs the initial full-complexity model runs according to what is typed in the corresponding cell **Initial full-complexity model runs (init_runs)** and pulls out the model outputs for each run as text **.txt files according to what is chosen in **Calibration quantity 1 (calib_target1)** cell. The parameter BOTTOM is not available at this point because the GAIA module of Telemac is not used however it can be easily implemented to extract those values as well. 
 
 In the following table you will find the parameters that need to be modified to run this package. The rest of the parameters in the .xlsx file are not available at this moment for surrogate model construction nor Bayesian Calibration. 
-                                                            **TELEMAC**
+
+                                                              TELEMAC
 
 |        PARAMETER                                |             VALUE                                         |     TYPE   |
 |-------------------------------------------------|-----------------------------------------------------------|------------|
@@ -181,7 +182,7 @@ In the following table you will find the parameters that need to be modified to 
 | .....                                           | ....                                                      |        ... |
 | ......                                          | ......                                                    |        ... |
 
-                                                           **ACTIVE LEARNING**
+                                                           ACTIVE LEARNING
 
 |        PARAMETER                                |             VALUE                                         |     TYPE   |
 |-------------------------------------------------|-----------------------------------------------------------|------------|
@@ -191,6 +192,7 @@ In the following table you will find the parameters that need to be modified to 
 | .....                                           | ....                                                      |        ... |
 | ......                                          | ......                                                    |        ... |
 
+                                                      DEFINE PRIOR DISTRIBUTIONS
 
 |        PARAMETER                                |             VALUE                                         |     TYPE   |
 |-------------------------------------------------|-----------------------------------------------------------|------------|
