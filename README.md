@@ -1,6 +1,10 @@
+# Table of Contents
 
+TAble of contents 
 
 # Python Package for Bayesian Calibration from Telemac Simulations
+
+
 ***
 ***Project's name***
 "Advances" on a Python package for Bayesian calibration from Telemac Simulations
@@ -232,9 +236,13 @@ In the following table you will find the parameters that need to be modified to 
     python main.py
     ```
  ![Running main.py](images/Figure3.png)
+ 
 8. After completing to run the code, inside the simulation folder **simulationxxx** you will find the required number of **.cas files along with a run_launcher python script that can be deleted after completion. 
+
 ![simulationxxxx folder](images/Figure5.png)
-9. Similarly, in the **auto-saved-results** folder you will find the **.slf, **.txt and **.xlsx output files from the Telemac simulations. An image of how it looks like is shown: 
+
+9. Similarly, in the **auto-saved-results** folder you will find the **.slf, **.txt and **.xlsx output files from the Telemac simulations. An image of how it looks like is shown:
+10. 
 ![auto-saved-results](images/Figure6.png)
 
 
@@ -267,12 +275,13 @@ In the following table you will find the parameters that need to be modified to 
 ![Running main.py](images/Figure3.png)
 
 # Author 
-* Andres
+* Andres Heredia Hidalgo
 * Abhishek 
 
 # References
 https://hydro-informatics.com/
-
+http://www.opentelemac.org/
+https://github.com/andresheredia1/surrogated_assisted_bayesian_calibration_forked.git
 
 # License
 This project is licensed under the GNU - see the LICENSE.md file for details- TBC
