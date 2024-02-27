@@ -1,11 +1,12 @@
 
+
 # Python Package for Bayesian Calibration from Telemac Simulations
 ***
 ***Project's name***
 "Advances" on a Python package for Bayesian calibration from Telemac Simulations
 
 ***Project purpose/description:***
-This projects aims to make significant development and contribution on creating a Bayesian Calibration package in Python using (this time) numerical simulations in Telemac 2D. Bayesian calibration techniques require a huge number of model simulations to perform statistical analysis in light of measured data. This is ,in fact, unfeasible when running numerical models may requiere several hours just for one realization. To make this possible, surrogate models (reduced models) are constructed with only __a few number of model realizations__. In this context, the main purpose relies on the creation of a package which could be able to run multiple simulations of Telemac as the base of a surrogate model construction and proceeding with the subsequent Bayesian calibration. The original code is based on the work made by Mouris, K. et al (2023) applied to a reservoir model calibration. 
+This projects aims to make significant development and contribution on creating a Bayesian Calibration package in Python using (this time) numerical simulations in Telemac 2D. Bayesian calibration techniques require a huge number of model simulations to perform statistical analysis in light of measured data. This is ,in fact, unfeasible when running numerical models may requiere several hours just for one realization. To make this possible, surrogate models (reduced models) are constructed as a first step with only __a few number of model realizations__. In this context, the main purpose relies on the creation of a package which could be able to run multiple simulations of Telemac as the basis of a subsequent surrogate model construction. The original code is based on the work made by Mouris, K. et al (2023) applied to a reservoir model calibration. 
 
 ***Motivation:***
 
@@ -14,24 +15,19 @@ Automating the process of running Telemac simulations the requiered times to con
 Extending the use of the package with other hydrodyamic numerical softwares. 
  
 
-***Goal:***: Create a package which is able to run the multiple simulation of Telemac and along with the Bayesian calibration
+***Goal:***: Create a package which is able to run multiple simulations of Telemac from a user input .xlsx sheet. A compiled matrix of desired model outputs will serve as the basis for a surrogate model construction to perform Bayesian calibration.
 The project focuses on three main tasks:
 * Running a Telemac model through Python several times as a baseline to construct a surrogate model for calibration purposes.
 * Managing simulation output files .slf to extract relevant data for calibration purposes.
 * Performing statistical analysis from the data obtained from the Telemac output files .slf
 
-GitHub Repository URL
-```
-https://github.com/andresheredia1/hybayescalpycourse
-```
+The full package is available from: **GitHub Repository URL**
 ```
 https://github.com/andresheredia1/HyBayesCal-pckg.git
 ```
 
-
 ## Requirements
-To use this Python package, we have decided to use a Linux Mint operating system which is a popular and user-friendly Linux distribution. One of the main reasons why the package runs in Linux is because Telemac is primarily developed and tested on Linux-based systems. It gives us the flexibility for configuring the environment and optimizing settings for Telemac simulations while providing a powerful command-line interface, which is well-suited for running batch simulations, automating tasks which improves the productivity of the code when managing large data sets. The creation of a virtual machine with the following characteristics is required:
-
+To use this Python package, we have decided to use a Linux Mint operating system which is a popular and user-friendly Linux distribution. One of the main reasons why the package runs in Linux is because Telemac is primarily developed and tested on Linux-based systems. It gives us the flexibility for configuring the environment and optimizing settings for Telemac simulations while providing a powerful command-line interface, which is well-suited for running batch simulations and automating tasks which improves the productivity of the code when managing large data sets. The creation of a virtual machine with the following characteristics is required:
 
 ### Virtual Machine
 The Virtual Machine configuration for this project is detailed below. For further information about the creation of a virtual machine, please visit the provided [Virtual Machine](https://hydro-informatics.com/get-started/vm.html)
