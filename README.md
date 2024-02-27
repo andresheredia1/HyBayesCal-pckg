@@ -51,7 +51,7 @@ The Virtual Machine configuration for this project is detailed below. For furthe
 ## Brief Overview of the Components
 * This package uses the python package [HyBayesCal-pckg](https://github.com/andresheredia1/HyBayesCal-pckg.git)
 * ```main.py```
-* ```config.py``
+* ```config.py```
 * ```file_creator.py``` contains 2 functions 
 * ```plot.py``` contains 2 methods
 * ```log_functions.py``` contains a wrapper function 
