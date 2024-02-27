@@ -231,6 +231,11 @@ In the following table you will find the parameters that need to be modified to 
        ```
     python main.py
     ```
+ ![Running main.py](images/Figure3.png)
+8. After completing to run the code, inside the simulation folder **simulationxxx** you will find the required number of **.cas files along with a run_launcher python script that can be deleted after completion. 
+![simulationxxxx folder](images/Figure5.png)
+9. Similarly, in the **auto-saved-results** folder you will find the **.slf, **.txt and **.xlsx output files from the Telemac simulations. An image of how it looks like is shown: 
+![auto-saved-results](images/Figure6.png)
 
 
 
