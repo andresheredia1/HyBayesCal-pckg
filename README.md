@@ -78,9 +78,10 @@ Download the [package](https://github.com/andresheredia1/HyBayesCal-pckg.git) an
 Once you downloaded the package you will see these folders. 
 ![Package Folders](images/Figure1.png)
 
-The creation of a virtual environment to run the package is required. The downloaded version of the package has already an environment folder called HBCenv, however you can also create a new one called HBCenv with all the necessary requirements shown in the file requirementsHBCenv.txt. 
+The package runs when a virtual environment is already activated. Thus, the code requires the creation and activation of a Python virtual environment with all dependencies and Python libraries. The downloaded version of the package has already an environment folder called HBCenv, however you can also create a new one called HBCenv with all the necessary requirements shown in the file *requirementsHBCenv.txt*. 
 
-To do so, navigate to the folder you have copied the package (i.e. HyBayesCal-pckg) using a Linux terminal and create the virtual environment as follows:
+### Creation of HBCenv  
+To create HBCenv, navigate to the folder you have copied the package (i.e. HyBayesCal-pckg) using a Linux terminal and create the virtual environment as follows:
 ```
 python3 -m venv HBCenv
 ```
@@ -92,18 +93,19 @@ Once the environment has been activated, install all the requirements according 
 ```
 pip install package_name
 ```
-## Folders and Files 
+## Package Folders and Files 
 ***
 
 ### env-scripts
-This folder contains the bash `.sh` files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package, you open each file and modify the directories based on your system. 
+This folder contains the bash `.sh` files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package for the first time, to open each file and modify the directories based on your system. 
+Within this folder you will find 2 bash .sh files:
 
-`activateHBCtelemac.sh`: Bash file that activates Telemac and the Python environment for the first run. Change the paths according to the following recommendations.
+**`activateHBCtelemac.sh`**: Bash file that activates Telemac and the Python environment for the first run. Change the paths according to the following recommendations.
 * `TELEMAC_CONFIG_DIR=/full/path/to/configs/folder/in/telemac`
 * `TELEMAC_CONFIG_NAME`= Name of Telemac compiler bash script `.sh` `pysource.template.sh` (i.e. pysource.gfortranHPC.sh).
 * `HBCenv_DIR=/full/path/to/HBCenv`
 
-`activateTM.sh`: Bash file that activates Telemac.
+**`activateTM.sh`**: Bash file that activates Telemac.
 * Modify `TELEMAC_CONFIG_DIR`= and `TELEMAC_CONFIG_NAME`= as mentioned above. 
 
 **Tip:** Make sure to test a single Telemac simulation from telemac/examples/. You can refer to Telemac Installation Guide if help needed at: [OpenTelemac.org](http://wiki.opentelemac.org/doku.php?id=installation_on_linux)
