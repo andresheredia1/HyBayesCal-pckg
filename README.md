@@ -10,9 +10,9 @@ This projects aims to make significant development and contribution on creating 
 
 ***Motivation:***
 
-Extracting the required data such as user input parameters for calibration purposes from a unique Excel file .xlsx.
-Automating the process of running Telemac simulations the requiered times to construct a surrogate model.
-Extending the use of the package with other hydrodyamic numerical softwares. 
+* Extracting the required data such as user input parameters for calibration purposes from a unique Excel file .xlsx.
+* Automating the process of running Telemac simulations the requiered times to construct a surrogate model.
+* Extending the use of the package with other hydrodyamic numerical softwares. 
  
 
 ***Goal:***: Create a package which is able to run multiple simulations of Telemac from a user input .xlsx sheet. A compiled matrix of desired model outputs will serve as the basis for a surrogate model construction to perform Bayesian calibration.
