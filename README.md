@@ -108,10 +108,10 @@ Within this folder you will find 2 bash .sh files:
 **`activateTM.sh`**: Bash file that activates Telemac.
 * Modify `TELEMAC_CONFIG_DIR`= and `TELEMAC_CONFIG_NAME`= as mentioned above. 
 
-**Tip:** Make sure to test a single Telemac simulation from telemac/examples/. You can refer to Telemac Installation Guide if help needed at: [OpenTelemac.org](http://wiki.opentelemac.org/doku.php?id=installation_on_linux)
+**Tip:** Make sure to test a single Telemac simulation from telemac/examples/. You can refer to the [Telemac Installation Guide](http://wiki.opentelemac.org/doku.php?id=installation_on_linux)if help needed. 
 
 ### HBCenv
-Folder containing the Python virtual environment. As explained before, this folder has the required python libraries to run the code.
+Folder containing the Python virtual environment. As explained before, this folder holds the required python libraries to run the code.
  
 ### HyBayesCal
 Bayesian Calibration Package. In this folder you will find the following python scripts: 
