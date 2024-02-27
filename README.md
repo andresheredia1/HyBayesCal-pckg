@@ -50,6 +50,18 @@ The Virtual Machine configuration for this project is detailed below. For furthe
   * pandas
   * scikit-learn
 
+## Code Diagram
+![UML]
+### Brief Overview of the Components
+* This package uses the python package [link of HBC github]
+* ```main.py```
+* ```file_creator.py``` contain 2 methods 
+* ```plot.py```
+* ```log.py```
+* ```package_launcher.py``` contain a custom class ```TelemacSimulations```. This class contains 2 methods and 4 magic methods
+
+
+
 ## Installation and run a project 
 ***
 To use this package, ensure the previously mentioned software and Python libraries are installed:
@@ -86,21 +98,17 @@ pip install package_name
 ```
 ## Folders and Files 
 ***
+
 ### env-scripts
-This folder contains the .sh files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package, you open each file and modify the directories based on your system. 
+This folder contains the bash `.sh` files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package, you open each file and modify the directories based on your system. 
 
-This folder contains the bash .sh files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package, you open each file and modify the directories based on your system. 
+`activateHBCtelemac.sh`: Bash file that activates Telemac and the Python environment for the first run. Change the paths according to the following recommendations.
+* `TELEMAC_CONFIG_DIR=/full/path/to/configs/folder/in/telemac`
+* `TELEMAC_CONFIG_NAME`= Name of Telemac compiler bash script `.sh` `pysource.template.sh` (i.e. pysource.gfortranHPC.sh).
+* `HBCenv_DIR=/full/path/to/HBCenv`
 
-**activateHBCtelemac.sh**: Bash file that activates Telemac and the Python environment for the first run. Change the paths according to the following recommendations. 
-
-1. *TELEMAC_CONFIG_DIR=/full/path/to/**configs**/folder/in/telemac*
-
-2. *TELEMAC_CONFIG_NAME= Name of Telemac compiler bash script .sh **pysource.template.sh** (i.e. pysource.gfortranHPC.sh).*
-
-3. *HBCenv_DIR=/full/path/to/HBCenv*
-
-**activateTM.sh**: Bash file that activates Telemac.
-Modify *TELEMAC_CONFIG_DIR=* and *TELEMAC_CONFIG_NAME=* as mentioned above. 
+`activateTM.sh`: Bash file that activates Telemac.
+* Modify `TELEMAC_CONFIG_DIR`= and `TELEMAC_CONFIG_NAME`= as mentioned above. 
 
 **Tip:** Make sure to test a single Telemac simulation from telemac/examples/. You can refer to Telemac Installation Guide if help needed at: [OpenTelemac.org](http://wiki.opentelemac.org/doku.php?id=installation_on_linux)
 
@@ -111,18 +119,16 @@ Folder containing the Python virtual environment. As explained before, this fold
 Bayesian Calibration Package. In this folder you will find the following python scripts: 
 ***
 `config.py`: Python script that contains all the necessary file paths and variables. Change these according to the following comments:
-
-1. *input_worbook_name =* Name of *.xlsx file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
-2. *activateTM_path =* Path to the Telemac activation file (“home/… /… /HyBayesCal-pckg/env-scripts/activateTM.sh”)
-3. *results_filename_base =* Write this according to how it is written in the .cas base file. Do not add the extension. 
-4. *output_excel_file_name=* Choose a name for the **.xlsx output file which is saved in auto-saved-results.
+* `input_worbook_name` =* Name of `.xlsx` file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
+* `activateTM_path` = Path to the Telemac activation file (“home/… /… /HyBayesCal-pckg/env-scripts/activateTM.sh”)
+* `results_filename_base` = Write this according to how it is written in the `.cas` base file. Do not add the extension. 
+* `output_excel_file_name`=` Choose a name for the `.xlsx` output file which is saved in auto-saved-results.
 ***
-`file_creator.py`
-Python script that has two functions: 
+`file_creator.py`: Python script that has two functions: 
 
-* `cas_creator`: Creates the required number .cas files based on a standard (base) .cas file. For this project,  .cas files are created based on random friction coefficients with a fixed range of values extracted from the input parameters excel file ***.xlsx from Use-case-xlsx folder. Since every .cas file and calibration parameter might be different, the code block denoted as : (## This code block should be changed according to the used .cas base file.)  in this python script should be modified according to the .cas base file.
+* `cas_creator`: Creates the required number `.cas` files based on a standard (base) `.cas` file. For this project,  `.cas` files are created based on random friction coefficients with a fixed range of values extracted from the input parameters excel file `.xlsx` from Use-case-xlsx folder. Since every `.cas` file and calibration parameter might be different, the code block denoted as : (## This code block should be changed according to the used `.cas` base file.)  in this python script should be modified according to the `.cas` base file.
 
-Additionally, returns a list of the random parameters that were used to create the .cas files and a list of the output *.slf files’ paths. 
+Additionally, returns a list of the random parameters that were used to create the `.cas` files and a list of the output `.slf` files’ paths. 
 
 * `sim_output_df`: Creates a data frame of the model outputs and saves it as an excel file in the auto-saved-results. 
 ***
@@ -149,18 +155,37 @@ This script works by executing subprocesses of the file called `package_launcher
 ***
 
 `active_learning.py`: Auxiliary functions for the stochastic calibration of model using Surrogate-Assisted Bayesian inversion
+***
 
 
-* Run Telemac 
+### Input .xlsx file
+Before executing the code, ensure you have the input data in an Excel (.xlsx) file. Modify this file according to the instructions provided. It should contain all the necessary parameters for running the simulation. At the end of the column, you'll find hints for specific parameters (e.g., Simulation path - hint: Copy the path from the file explorer). The results of the simulation will be stored in a sub-folder named "auto-results".
+
+
+|PARAMETER                                        | VALUE                                                     | TYPE       |
+|-------------------------------------------------|:----------------------------------------------------------|-----------:|
+| Name of TELEMAC steering file (.cas)            | t2d-donau-const-1.cas                                     |     string |
+| Name of Gaia steering file (.cas, optional)     |                                                           |     string |
+| Simulation path                                 |/home/amintvm/modeling/hybayescalpycourse/examples/donau/  |     string |
+| TELEMAC type (tm_xd)                            | Telemac2d                                                 |     string |
+| Number of CPUs                                  | 2                                                         |        int |
+| .....                                           | ....                                                      |        ... |
+| ......                                          | ......                                                    |        ... |
+
+
+
+* Steps to Run Telemac Simulation  
   * To run Telemac simulations, ensure that Telemac is installed. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation).
   * To run multiple Telemac simulations, follow these steps:
-    * Update (file_name.xlsl)
-      1. Locate the .xlsl file at the specified location. 
-      2. Choose the number of runs to simulate. 
+    * Update `config.py` as mentioned above.
+    * Update `.xlsx` used input file as mentioned above 
+      1. Locate the .xlsl file at the specified location 
+      2. Choose the number of runs to simulate 
       3. Update the values of required parameters, editing only the cells highlighted in orange color. ***Warning: Do not edit anything else.***
-      4. Save and close the .xlsl file. 
+      4. Save and close the .xlsl file 
+    * Update the `activeHBCtelemac.sh` as mentioned above
     * Activating Environment: This package employs a virtual environment, with the activation script named `activateHBCtelemac.sh`. To activate this environment:
-      1. Navigate to the directory containing the activation script:
+      1. Navigate to the directory containing the activation script: (for example)
        ```
        cd modeling/hybayescalpycourse/env-scripts
        ```
@@ -178,32 +203,8 @@ Text to be updated below this:-
 
 
 
-## Data
-### Input .xlsx file
-Before executing the code, ensure you have the input data in an Excel (.xlsx) file. Modify this file according to the instructions provided. It should contain all the necessary parameters for running the simulation. At the end of the column, you'll find hints for specific parameters (e.g., Simulation path - hint: Copy the path from the file explorer). The results of the simulation will be stored in a sub-folder named "auto-results".
-
-
-|PARAMETER                                        | VALUE                                                     | TYPE       |
-|-------------------------------------------------|:----------------------------------------------------------|-----------:|
-| Name of TELEMAC steering file (.cas)            | t2d-donau-const-1.cas                                     |     string |
-| Name of Gaia steering file (.cas, optional)     |                                                           |     string |
-| Simulation path                                 |/home/amintvm/modeling/hybayescalpycourse/examples/donau/  |     string |
-| TELEMAC type (tm_xd)                            | Telemac2d                                                 |     string |
-| Number of CPUs                                  | 2                                                         |        int |
-| .....                                           | ....                                                      |        ... |
-| ......                                          | ......                                                    |        ... |
-
 
 ***
-## Code Diagram
-![UML]
-### Brief Overview of the Components
-* This package uses the python package [link of HBC github]
-* ```main.py```
-* ```file_creator.py``` contain 2 methods 
-* ```plot.py```
-* ```log.py```
-* ```package_launcher.py``` contain a custom class ```TelemacSimulations```. This class contains 2 methods and 4 magic methods
 
 
 
