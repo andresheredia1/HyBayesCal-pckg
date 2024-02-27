@@ -165,19 +165,39 @@ This script works by executing subprocesses of the file called `package_launcher
 
 
 ### use-case-xlsx
-This folder contains the ***.xlsx file which holds the user input parameters for surrogate model construction and Bayesian Calibration. Before executing the code, ensure you have the user input data in this Excel (.xlsx) file. Modify this file according to the instructions provided in the HINT column. It should contain all the necessary parameters for running the simulation. At the end of the column, you'll find hints for specific parameters (e.g., Simulation path - hint: Copy the path from the file explorer). The results of the simulation will be stored in a sub-folder named "auto-results". In the following table you will find an example of how this table looks like:
+This folder contains the ***.xlsx file which holds the user input parameters for surrogate model construction and Bayesian Calibration. Before executing the code, ensure you have the user input data in this Excel (.xlsx) file. Modify this file according to the instructions provided in the HINT column. It should contain all the necessary parameters for running the simulation. At the end of the column, you'll find hints for specific parameters (e.g., Simulation path - hint: Copy the path from the file explorer). The results of the simulation will be stored in a sub-folder named "auto-results". 
 
-|-------------------------------------------------| ----------------------------------------------------------|------------|
+The **.xlsx file has three main sections to insert data. *TELEMAC*, *ACTIVE LEARNING*, *DEFINE PRIOR DISTRIBUTIONS*. For now, the code runs the initial full-complexity model runs according to what is typed in the corresponding cell **Initial full-complexity model runs (init_runs)** and pulls out the model outputs for each run as text **.txt files according to what is chosen in **Calibration quantity 1 (calib_target1)** cell. The parameter BOTTOM is not available at this point because the GAIA module of Telemac is not used however it can be easily implemented to extract those values as well. 
+
+In the following table you will find the parameters that need to be modified to run this package. The rest of the parameters in the .xlsx file are not available at this moment for surrogate model construction nor Bayesian Calibration. 
+                                                            **TELEMAC**
+
 |        PARAMETER                                |             VALUE                                         |     TYPE   |
 |-------------------------------------------------|-----------------------------------------------------------|------------|
-| Name of TELEMAC steering file (.cas)            | t2d-donau-const-1.cas                                     |     string |
-| Name of Gaia steering file (.cas, optional)     |                                                           |     string |
+| Name of TELEMAC steering file (.cas)            | t2d-donau-const.cas                                       |     string |
 | Simulation path                                 |/home/amintvm/modeling/hybayescalpycourse/examples/donau/  |     string |
 | TELEMAC type (tm_xd)                            | Telemac2d                                                 |     string |
 | Number of CPUs                                  | 2                                                         |        int |
 | .....                                           | ....                                                      |        ... |
 | ......                                          | ......                                                    |        ... |
 
+                                                           **ACTIVE LEARNING**
+
+|        PARAMETER                                |             VALUE                                         |     TYPE   |
+|-------------------------------------------------|-----------------------------------------------------------|------------|
+| ......                                          | ......                                                    |     .......|
+| Initial full-complexity model runs (init_runs)  |      4                                                    |        int |
+| Calibration quantity 1 (calib_target1)          |VELOCITY or DEPTH                                          |     string |
+| .....                                           | ....                                                      |        ... |
+| ......                                          | ......                                                    |        ... |
+
+
+|        PARAMETER                                |             VALUE                                         |     TYPE   |
+|-------------------------------------------------|-----------------------------------------------------------|------------|
+| ......                                          | ......                                                    |     .......|
+| FRICTION COEFFICIENT                            |   0.01,0.07                                               |     float  |
+| .....                                           | ....                                                      |        ... |
+| ......                                          | ......                                                    |        ... |
 
 
 ### Steps to Run Telemac Simulation  
