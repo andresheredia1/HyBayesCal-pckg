@@ -115,10 +115,13 @@ Within this folder you will find 2 bash .sh files:
 Folder containing the Python virtual environment. As explained before, this folder holds the required python libraries to run the code.
  
 ### Simulationxxxx
-Folder that should contain the necessary files to run Telemac. At this point, the package only runs hydrodynamic simulations but it can also be implemented to run other Telemac modules. To test the package, the simulation folder has already a case study *2dsteady.cas*.
+Folder that should contain the necessary files to run Telemac and a subfolder called *auto-saved-results*. To this point, the package only runs hydrodynamic simulations but it can also be implemented to run other Telemac modules. To test the package, the simulation folder has already a case study *2dsteady.cas*.
 * `**.cas - Telemac Steering file` (2dsteady.cas for this case study),
 * `**.cli - Boundary conditions file` (boundaries.cli for this case)
 * `**.slf - Mesh file` (qgismesh.slf for this case)
+The folder should look like this:
+
+![Simulationxxxx](images/Figure4.png)
 
 ### HyBayesCal
 Bayesian Calibration Package. In this folder you will find the following python scripts:   
@@ -131,7 +134,7 @@ Bayesian Calibration Package. In this folder you will find the following python 
 ***
 `file_creator.py`: Python script that has two functions: 
 
-* `cas_creator`: Creates the required number `.cas` files based on a standard (base) `.cas` file. For this project,  `.cas` files are created based on random friction coefficients with a fixed range of values extracted from the input parameters excel file `.xlsx` from Use-case-xlsx folder. Since every `.cas` file and calibration parameter might be different, the code block denoted as : (## This code block should be changed according to the used `.cas` base file.)  in this python script should be modified according to the `.cas` base file.
+* `cas_creator`: Creates the required number `.cas` files based on a standard (base) `.cas` file. For this project,  `.cas` files are created based on random friction coefficients with a fixed range of values extracted from the input parameters excel file `.xlsx` from **Use-case-xlsx** folder. Since every `.cas` file and calibration parameter might be different, the code block denoted as : (## This code block should be changed according to the used `.cas` base file.)  in this python script should be modified according to the `.cas` base file that is currently used.
 
 Additionally, returns a list of the random parameters that were used to create the `.cas` files and a list of the output `.slf` files’ paths. 
 
@@ -211,12 +214,27 @@ In the following table you will find the parameters that need to be modified to 
 1. Since the package runs iteratively several Telemac simulations, you must ensure that Telemac is installed in your computer and properly running. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation). It is important to test one simulation from */home/......../......./telemac-mascaret/examples/telemac2d/* in your telemac folder. 
 2. Once you have checked that Telemac runs properly in your system, set all the necessary user input parameters in the input parameters excel file located in the folder called: **use-case-xlsx**. Consider the comments in the HINT column. Remember that only the aboved mentioned parameters shown in [use-case-xlsx folder](#use-case-xlsx) are necessary to run the code at this point. Update the values of required parameters, editing only the cells highlighted in orange color. Save and close the .xlsl file 
    
-4. Go into **env-scripts** folder and modify the paths of the bash .sh files as mentioned above in [env-scripts](#env-scripts).
+4. Go into **env-scripts** folder and modify the paths of the bash .sh files **activateHBCtelemac.sh** and **activateTM.sh**  as mentioned above in [env-scripts](#env-scripts).
 5. Go into HyBayesCal folder and open **config.py**. Modify the variables in this script considering the previously noted recommendations in [config.py](#HyBayesCal).
-6. Open a Linux terminal, navigate to **env-scripts** folder and source the activateHBCtelemac.sh for the first run of the code by typing:
-   '''
-   source activateHBCtelemac.sh
-   '''
+6. Activating Environments: Open a Linux terminal, navigate to **env-scripts** folder and activate for the first time both the Python virtual environment *HBCenv* and Telemac compiler bash script *pysource.template.sh* by typing:
+       ```
+       source activateHBCtelemac.sh
+       ```
+   A message like this will show up:
+    ```
+   > Loading HBCenv...
+    **Success**
+   > Loading TELEMAC config...
+    **Success**
+   ```
+7. Runing the code: In the same terminal navigate to the folder HyBayesCal where all the required python scripts are and run the **`main.py`** script.
+       ```
+    python main.py
+    ```
+
+
+
+    
   * To run Telemac simulations, ensure that Telemac is installed. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation).
   * To run multiple Telemac simulations, follow these steps:
     * Update `config.py` as mentioned above 
@@ -241,7 +259,7 @@ In the following table you will find the parameters that need to be modified to 
     ```
     python main.py
     ```
-
+![Running main.py](images/Figure3.png)
 
 # Author 
 * Andres
