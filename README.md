@@ -76,6 +76,7 @@ To use this package, ensure that the previously mentioned software and Python li
   ```
 Download the [package](https://github.com/andresheredia1/HyBayesCal-pckg.git) and copy it to a desired folder. The download version of the package has some folders and scripts  which are explained in detail in the following lines. 
 Once you downloaded the package you will see these folders. 
+
 ![Package Folders](images/Figure1.png)
 
 The package runs when a virtual environment is already activated. Thus, the code requires the creation and activation of a Python virtual environment with all dependencies and Python libraries. The downloaded version of the package has already an environment folder called HBCenv, however you can also create a new one called HBCenv with all the necessary requirements shown in the file *requirementsHBCenv.txt*. 
@@ -108,7 +109,7 @@ Within this folder you will find 2 bash .sh files:
 **`activateTM.sh`**: Bash file that activates Telemac.
 * Modify `TELEMAC_CONFIG_DIR`= and `TELEMAC_CONFIG_NAME`= as mentioned above. 
 
-**Tip:** Make sure to test a single Telemac simulation from telemac/examples/. You can refer to the [Telemac Installation Guide](http://wiki.opentelemac.org/doku.php?id=installation_on_linux)if help needed. 
+**Tip:** Make sure to test a single Telemac simulation from telemac/examples/. You can refer to the [Telemac Installation Guide](http://wiki.opentelemac.org/doku.php?id=installation_on_linux) if help needed. 
 
 ### HBCenv
 Folder containing the Python virtual environment. As explained before, this folder holds the required python libraries to run the code.
@@ -117,7 +118,12 @@ Folder containing the Python virtual environment. As explained before, this fold
 Bayesian Calibration Package. In this folder you will find the following python scripts: 
 
 ### Simulation
-Folder contains the necessary file to run Telemac, `.cas` (2dsteady.cas for this case), `.cli` (boundaries.cli for this case) and `.slf` (qgismesh.slf for this case)
+Folder that should contain the necessary files to run Telemac. At this point, the package only runs hydrodynamic simulations but it can also be implemented to run other Telemac modules. To test the package, the simulation folder has already a case study *2dsteady.cas*.
+* `**.cas** - Telemac Steering file ` (2dsteady.cas for this case study),
+* `.cli` - Boundary conditions file (boundaries.cli for this case)
+* `.slf` - Mesh file (qgismesh.slf for this case)
+  
+
 ***
 `config.py`: Python script that contains all the necessary file paths and variables. Change these according to the following comments:
 * `input_worbook_name` =* Name of `.xlsx` file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
