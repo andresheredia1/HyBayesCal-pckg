@@ -156,8 +156,6 @@ This script works by executing subprocesses of the file called `package_launcher
 * `import_excel_file`: Imports the necessary user input parameters for Bayesian calibration purposes from the user input parameters excel file **.xlsx.
 ***
 
-`plot.py`: Python script that reads and plots the simulation output matrix.  
-
 `bayesian_gpe.py`: Contains a class and methods for running a stochastic calibration of a deterministic model by using a Gaussian process emulator (GPE) - based surrogate model that is fitted through Bayesian active learning (BAL).
 ***
 
