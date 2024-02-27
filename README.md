@@ -22,9 +22,6 @@ The project focuses on three main tasks:
 
 GitHub Repository URL
 ```
-https://github.com/andresheredia1/hybayescalpycourse
-```
-```
 https://github.com/andresheredia1/HyBayesCal-pckg.git
 ```
 
