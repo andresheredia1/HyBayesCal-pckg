@@ -169,7 +169,7 @@ This folder contains the ***.xlsx file which holds the user input parameters for
 
 The **.xlsx file has three main sections to insert data. *TELEMAC*, *ACTIVE LEARNING*, *DEFINE PRIOR DISTRIBUTIONS*. For now, the code runs the initial full-complexity model runs according to what is typed in the corresponding cell **Initial full-complexity model runs (init_runs)** and pulls out the model outputs for each run as text **.txt files according to what is chosen in **Calibration quantity 1 (calib_target1)** cell. The parameter BOTTOM is not available at this point because the GAIA module of Telemac is not used however it can be easily implemented to extract those values as well. 
 
-In the following table you will find the parameters that need to be modified to run this package. The rest of the parameters in the .xlsx file are not available at this moment for surrogate model construction nor Bayesian Calibration. 
+In the following table you will find the parameters that need to be modified to run this package. The rest of the parameters in the .xlsx file are not yet available. 
 
                                                               TELEMAC
 
@@ -203,6 +203,9 @@ In the following table you will find the parameters that need to be modified to 
 
 
 ### Steps to Run Telemac Simulation  
+1. Since the package runs iteratively several Telemac simulations, you must ensure that Telemac is installed in your computer and properly running. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation). It is important to test one simulation from */home/......../......./telemac-mascaret/examples/telemac2d/* in your telemac folder. 
+2. Once you have checked that Telemac runs properly in your system, set all the necessary user input parameters in the input parameters excel file located in the folder called: **use-case-xlsx**. Consider the comments in the HINT column. Remember that only the aboved mentioned parameters shown in [use-case-xlsx folder](#use-case-xlsx) are necessary to run the code at this point.
+3. Go into **env-scripts** folder and modify the paths of the bash .sh files as mentioned above. 
   * To run Telemac simulations, ensure that Telemac is installed. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation).
   * To run multiple Telemac simulations, follow these steps:
     * Update `config.py` as mentioned above.
