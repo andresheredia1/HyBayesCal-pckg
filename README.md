@@ -49,12 +49,13 @@ The Virtual Machine configuration for this project is detailed below. For furthe
 ## Code Diagram
 ![UML]
 ### Brief Overview of the Components
-* This package uses the python package [link of HBC github]
+* This package uses the python package [HyBayesCal-pckg]([https://hydro-informatics.com/get-started/vm.html](https://github.com/andresheredia1/HyBayesCal-pckg.git)
 * ```main.py```
-* ```file_creator.py``` contain 2 methods 
-* ```plot.py```
-* ```log.py```
-* ```package_launcher.py``` contain a custom class ```TelemacSimulations```. This class contains 2 methods and 4 magic methods
+* ```config.py``
+* ```file_creator.py``` contains 2 functions 
+* ```plot.py``` contains 2 methods
+* ```log_functions.py``` contains a wrapper function 
+* ```package_launcher.py``` contains a custom class ```TelemacSimulations```. This class contains 2 methods and 4 magic methods
 
 
 
