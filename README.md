@@ -117,6 +117,9 @@ Folder containing the Python virtual environment. As explained before, this fold
  
 ### HyBayesCal
 Bayesian Calibration Package. In this folder you will find the following python scripts: 
+
+### Simulation
+Folder contains the necessary file to run Telemac, `.cas` (2dsteady.cas for this case), `.cli` (boundaries.cli for this case) and `.slf` (qgismesh.slf for this case)
 ***
 `config.py`: Python script that contains all the necessary file paths and variables. Change these according to the following comments:
 * `input_worbook_name` =* Name of `.xlsx` file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
@@ -194,18 +197,6 @@ Before executing the code, ensure you have the input data in an Excel (.xlsx) fi
        ```
        source activateHBCtelemac.sh
        ```
-
-Text to be updated below this:-
-*  python (filename) 
-* Mesh file (`casename.slf`)
-* Boundary conditions file (`casename.cli`)
-* Output file (`case output.slf`)
-
-
-
-
-***
-
 
 
 # Author 
