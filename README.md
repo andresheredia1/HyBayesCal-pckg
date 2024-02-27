@@ -114,16 +114,14 @@ Within this folder you will find 2 bash .sh files:
 ### HBCenv
 Folder containing the Python virtual environment. As explained before, this folder holds the required python libraries to run the code.
  
-### HyBayesCal
-Bayesian Calibration Package. In this folder you will find the following python scripts: 
-
-### Simulation
+### Simulationxxxx
 Folder that should contain the necessary files to run Telemac. At this point, the package only runs hydrodynamic simulations but it can also be implemented to run other Telemac modules. To test the package, the simulation folder has already a case study *2dsteady.cas*.
-* `**.cas** - Telemac Steering file ` (2dsteady.cas for this case study),
-* `.cli` - Boundary conditions file (boundaries.cli for this case)
-* `.slf` - Mesh file (qgismesh.slf for this case)
-  
+* `**.cas - Telemac Steering file` (2dsteady.cas for this case study),
+* `**.cli - Boundary conditions file` (boundaries.cli for this case)
+* `**.slf - Mesh file` (qgismesh.slf for this case)
 
+### HyBayesCal
+Bayesian Calibration Package. In this folder you will find the following python scripts:   
 ***
 `config.py`: Python script that contains all the necessary file paths and variables. Change these according to the following comments:
 * `input_worbook_name` =* Name of `.xlsx` file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
@@ -158,6 +156,8 @@ This script works by executing subprocesses of the file called `package_launcher
 * `import_excel_file`: Imports the necessary user input parameters for Bayesian calibration purposes from the user input parameters excel file **.xlsx.
 ***
 
+`plot.py`: Python script that reads and plots the simulation output matrix.  
+
 `bayesian_gpe.py`: Contains a class and methods for running a stochastic calibration of a deterministic model by using a Gaussian process emulator (GPE) - based surrogate model that is fitted through Bayesian active learning (BAL).
 ***
 
@@ -165,12 +165,13 @@ This script works by executing subprocesses of the file called `package_launcher
 ***
 
 
-### Input .xlsx file
-Before executing the code, ensure you have the input data in an Excel (.xlsx) file. Modify this file according to the instructions provided. It should contain all the necessary parameters for running the simulation. At the end of the column, you'll find hints for specific parameters (e.g., Simulation path - hint: Copy the path from the file explorer). The results of the simulation will be stored in a sub-folder named "auto-results".
 
+### use-case-xlsx
+This folder contains the ***.xlsx file which holds the user input parameters for surrogate model construction and Bayesian Calibration. Before executing the code, ensure you have the user input data in this Excel (.xlsx) file. Modify this file according to the instructions provided in the HINT column. It should contain all the necessary parameters for running the simulation. At the end of the column, you'll find hints for specific parameters (e.g., Simulation path - hint: Copy the path from the file explorer). The results of the simulation will be stored in a sub-folder named "auto-results". In the following table you will find an example of how this table looks like:
 
-|PARAMETER                                        | VALUE                                                     | TYPE       |
-|-------------------------------------------------|:----------------------------------------------------------|-----------:|
+|-------------------------------------------------| ----------------------------------------------------------|------------|
+|        PARAMETER                                |             VALUE                                         |     TYPE   |
+|-------------------------------------------------|-----------------------------------------------------------|------------|
 | Name of TELEMAC steering file (.cas)            | t2d-donau-const-1.cas                                     |     string |
 | Name of Gaia steering file (.cas, optional)     |                                                           |     string |
 | Simulation path                                 |/home/amintvm/modeling/hybayescalpycourse/examples/donau/  |     string |
