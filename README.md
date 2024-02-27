@@ -48,8 +48,8 @@ The Virtual Machine configuration for this project is detailed below. For furthe
 
 ## Code Diagram
 ![UML]
-### Brief Overview of the Components
-* This package uses the python package [HyBayesCal-pckg]([https://hydro-informatics.com/get-started/vm.html](https://github.com/andresheredia1/HyBayesCal-pckg.git)
+## Brief Overview of the Components
+* This package uses the python package [HyBayesCal-pckg](https://github.com/andresheredia1/HyBayesCal-pckg.git)
 * ```main.py```
 * ```config.py``
 * ```file_creator.py``` contains 2 functions 
@@ -58,10 +58,9 @@ The Virtual Machine configuration for this project is detailed below. For furthe
 * ```package_launcher.py``` contains a custom class ```TelemacSimulations```. This class contains 2 methods and 4 magic methods
 
 
-
 ## Installation and run a project 
 ***
-To use this package, ensure the previously mentioned software and Python libraries are installed:
+To use this package, ensure that the previously mentioned software and Python libraries are installed:
 * Upon the initial launch of the VM, the first essential task is to update the system (which should be performed periodically):
   * Open Terminal.
   * Enter the command: `sudo apt update`
@@ -75,9 +74,9 @@ To use this package, ensure the previously mentioned software and Python librari
   ```
   sudo apt-get remove app_name
   ```
-Download the package and copy it to a desired folder. The download version of the package has some folders and scripts  which are explained in detail in the following lines. 
+Download the [package](https://github.com/andresheredia1/HyBayesCal-pckg.git) and copy it to a desired folder. The download version of the package has some folders and scripts  which are explained in detail in the following lines. 
 Once you downloaded the package you will see these folders. 
-[figure 1]
+![Package Folders](images/Figure1.png)
 
 The creation of a virtual environment to run the package is required. The downloaded version of the package has already an environment folder called HBCenv, however you can also create a new one called HBCenv with all the necessary requirements shown in the file requirementsHBCenv.txt. 
 
