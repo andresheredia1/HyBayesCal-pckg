@@ -1,12 +1,28 @@
 from config import *
 
 class PlotGraph:
+    """
+    Author - Abhishek
+    A class for plotting and analyzing data obtained from a text file and an Excel file.
+
+    Attributes:
+        file_path (str): The path where the files are located.
+        file_name (str): The name of the Excel file containing the data.
+        df_outputs (DataFrame): DataFrame to store the data read from the Excel file.
+    """
+    
     def __init__(self, file_path, file_name):
         self.file_path = file_path
         self.file_name = file_name
         self.df_outputs = None  # Initialize df_outputs attribute
 
     def read_txt(self):
+        """
+        Reads node values from a text file.
+
+        Returns: list or None: A list of node values if the file is found, else None.
+        """
+        
         try:
             # Read node values from nodes_input.txt file
             with open(os.path.join(node_file_path, node_file_name), "r") as f:
@@ -17,6 +33,10 @@ class PlotGraph:
             return None
 
     def read_excel_file(self):
+        """
+        Reads data from an Excel file and stores it in a DataFrame.
+        """
+        
         try:
             # Read DataFrame from Excel file
             self.df_outputs = pd.read_excel(os.path.join(self.file_path, self.file_name))
@@ -24,6 +44,10 @@ class PlotGraph:
             print(f"An error occurred while reading the Excel file: {str(e)}")
 
     def plot_data(self):
+        """
+        Plots the data from the Excel file, with options for customizing the plot.
+        """
+       
         try:
             # Read nodes from text file
             nodes = self.read_txt()
@@ -60,6 +84,10 @@ class PlotGraph:
             print(f"An error occurred: {str(e)}")
 
     def average(self):
+        """
+        Calculates the average of each column in the Excel data and plots it.
+        """
+        
         try:
             if self.df_outputs is None:
                 self.read_excel_file()  # Read Excel file if DataFrame is not yet initialized
@@ -92,8 +120,3 @@ class PlotGraph:
         except Exception as e:
             print(f"An error occurred: {str(e)}")
 
-# Example usage:
-# plotter = PlotGraph(file_path, file_name)
-# plotter.read_excel_file()  # Read the Excel file once
-# plotter.plot_data()
-# plotter.average()
