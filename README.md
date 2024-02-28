@@ -258,9 +258,11 @@ In the following table you will find the parameters that need to be modified to 
 
 ![simulationxxxx folder](images/Figure5.png)
 
-9. Similarly, in the **auto-saved-results** folder you will find the **.slf, **.txt and **.xlsx output files from the Telemac simulations. An image of how it looks like is shown:
-
+9. Similarly, in the **auto-saved-results** folder you will find the `.slf`, `.txt` and `.xlsx`,  output files from the Telemac simulations and 2 graphs `data.jpg` and `average_plot.jpg`. An image of how it looks like is shown:
 ![auto-saved-results](images/Figure6.png)
+![auto-saved-results](images/Figure8.png)  
+![auto-saved-results](images/Figure9.png)  
+
 
 # Authors 
 * Andres Heredia Hidalgo
