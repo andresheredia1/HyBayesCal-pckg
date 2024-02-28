@@ -4,6 +4,23 @@ from config import *
 Creates .cas files according to the number in full complexity models
 """
 def cas_creator(source_file, tm_model_dir, init_runs,results_filename_base,calib_param_range):
+    """
+    Author - Andres
+    Creates .cas files for full complexity models.
+
+    Parameters:
+    - source_file: Path to source file.
+    - tm_model_dir: Directory for .cas files.
+    - init_runs: Number of runs.
+    - results_filename_base: Base filename for results.
+    - calib_param_range: Range for calibration parameter.
+
+    Returns:
+    - results_filename_list: List of generated results filenames.
+    - random_param: List of random calibration parameters.
+    - random_flowrate: List of random flow rates.
+
+    """    
     results_filename_list=[]
     file_name = os.path.basename(source_file)
     prefix, extension = os.path.splitext(file_name)
@@ -30,6 +47,21 @@ def cas_creator(source_file, tm_model_dir, init_runs,results_filename_base,calib
             f.write(new_content)
     return results_filename_list,random_param
 def sim_output_df(tm_model_dir, init_runs,results_filename_base,output_excel_file_name,random_param):
+    """
+    Creates DataFrame from simulation outputs and saves to Excel.
+
+    Parameters:
+    - tm_model_dir: Directory for simulation results.
+    - init_runs: Number of runs.
+    - results_filename_base: Base filename for results.
+    - output_excel_file_name: Filename for Excel file.
+    - random_param: List of random calibration parameters.
+    - random_flowrate: List of random flow rates.
+
+    Returns:
+    - df_outputs: DataFrame of simulation outputs.
+
+    """ 
     # Initializes an empty DataFrame to store the data
     results_filename_list_txt = []
     auto_saved_results_path=os.path.join(tm_model_dir,"auto-saved-results")
