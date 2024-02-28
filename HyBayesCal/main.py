@@ -72,7 +72,7 @@ if __name__ == "__main__":
     results_df=sim_output_df(tm_model_dir, init_runs,results_filename_base,output_excel_file_name,random_param)
     logging.info(f"Output *.xlsx file {output_excel_file_name} created in >>>>>> auto-saved-results.")
     print(f"Output *.xlsx file {output_excel_file_name} created in >>>>>> auto-saved-results.")
-    plot_graph = PlotGraph(log_directory, output_excel_file_name)
+    plot_graph = PlotGraph(excel_file_path, output_excel_file_name)
     plot_graph.read_excel_file()
     plot_graph.plot_data()
     plot_graph.average()
