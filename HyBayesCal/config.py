@@ -1,6 +1,6 @@
 """
-Author - Abhishek
-This script import the necessary Global and basic libraries"
+Author - Andres & Abhishek
+This script import the necessary global and basic libraries"
 """
 # basic python libraries
 try:
