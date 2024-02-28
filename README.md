@@ -69,11 +69,11 @@ The Virtual Machine configuration for this project is detailed below. For furthe
 
 ## Brief Overview of the Package Components
 * This package uses the python package [HyBayesCal-pckg](https://github.com/andresheredia1/HyBayesCal-pckg.git)
-* ```main.py```
-* ```config.py```
-* ```file_creator.py``` contains 2 functions 
-* ```plot.py``` contains 2 methods
-* ```log_functions.py``` contains a wrapper function 
+* ```main.py``` contains 2 methods and log action. This is stand-alone file.
+* ```config.py``` contain basic and global libraries along with the file path used in project.
+* ```file_creator.py``` contains 2 methods to edit `.cas` and export the Dataframe to `.xlsx`. 
+* ```plot.py``` contains a class `PlotGraph` and 5 methods to read `.txt.`, `.xslx` and plot the graphs. 
+* ```log_functions.py``` contains a method `log_action` and a submethod for wrapper function.
 * ```package_launcher.py``` contains a custom class ```TelemacSimulations```. This class contains 2 methods and 4 magic methods
 
 
