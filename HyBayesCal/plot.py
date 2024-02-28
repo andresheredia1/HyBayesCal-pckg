@@ -50,8 +50,10 @@ class PlotGraph:
             plt.ylabel('Velocity' if is_velocity else 'Water Depth')  # Determine y-axis label based on data
             # plt.title('Velocity Profile')
             plt.legend()
+            plt.gcf().set_size_inches(10, 6)  # Set the size of the graph
             plt.savefig(os.path.join(self.file_path, "data.jpg"))  # Save the plot as a .jpg file
-            plt.show()
+            #plt.show()
+            plt.close()
             print("Plotting successful!")
 
         except Exception as e:
@@ -81,8 +83,10 @@ class PlotGraph:
             plt.ylabel('Average Velocity' if is_velocity else 'Average Water Depth')  # Label for y-axis
             plt.title('Average Plot')
             plt.legend()  # Show legend with labels based on x-axis values
+            plt.gcf().set_size_inches(10, 6)  # Set the size of the graph
             plt.savefig(os.path.join(self.file_path, "average_plot.jpg"))  # Save the plot as a .jpg file
-            plt.show()
+            #plt.show()
+            plt.close()
             print("Average plotting successful!")
 
         except Exception as e:
