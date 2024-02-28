@@ -247,7 +247,7 @@ In the following table you will find the parameters that need to be modified to 
     **Success**
    ```
 7. Runing the code: In the same terminal navigate to the folder HyBayesCal where all the required python scripts are and run the **`main.py`** script.
-       ```
+   ```
     python main.py
     ```
  ![Running main.py](images/Figure3.png)
