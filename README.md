@@ -134,10 +134,11 @@ Within this folder you will find 2 bash .sh files:
 Folder containing the Python virtual environment. As explained before, this folder holds the required python libraries to run the code.
  
 ### Simulationxxxx
-Folder that should contain the necessary files to run Telemac and a subfolder called *auto-saved-results*. To this point, the package only runs hydrodynamic simulations but it can also be implemented to run other Telemac modules. To test the package, the simulation folder has already a case study *2dsteady.cas*.
-* `**.cas - Telemac Steering file` (2dsteady.cas for this case study),
-* `**.cli - Boundary conditions file` (boundaries.cli for this case)
-* `**.slf - Mesh file` (qgismesh.slf for this case)
+Folder that should contain the necessary files to run Telemac and a subfolder called *auto-saved-results*. To this point, the package only runs hydrodynamic simulations but it can also be implemented to run other Telemac modules. To test the package, the simulation folder has already a case study `2dsteady.cas`. (Hint: if this folder is not present while download, create it before running the code)
+* `.cas` - Telemac Steering file (2dsteady.cas for this case study),
+* `.cli` - Boundary conditions file (boundaries.cli for this case)
+* `.slf` - Mesh file (qgismesh.slf for this case) \\
+
 The folder should look like this:
 
 ![Simulationxxxx](images/Figure4.png)
