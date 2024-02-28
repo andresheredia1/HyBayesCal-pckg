@@ -120,10 +120,10 @@ pip install package_name
 This folder contains the bash `.sh` files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package for the first time, to open each file and modify the directories based on your system. 
 Within this folder you will find 2 bash .sh files:
 
-**`activateHBCtelemac.sh`**: Bash file that activates Telemac and Python environment for the first run. Change the paths according to the following recommendations.
-* `TELEMAC_CONFIG_DIR =`/full/path/to/**configs**/folder/in/telemac
-* `TELEMAC_CONFIG_NAME =`Name of Telemac compiler bash script `.sh` `pysource.template.sh` (i.e. pysource.gfortranHPC.sh).
-* `HBCenv_DIR =`/full/path/to/HBCenv
+* `activateHBCtelemac.sh`: Bash file that activates Telemac and Python environment for the first run. Change the paths according to the following recommendations.
+* `TELEMAC_CONFIG_DIR` = /full/path/to/**configs**/folder/in/telemac
+* `TELEMAC_CONFIG_NAME` = Name of Telemac compiler bash script `.sh` `pysource.template.sh` (i.e. pysource.gfortranHPC.sh).
+* `HBCenv_DIR` = /full/path/to/HBCenv
 
 **`activateTM.sh`**: Bash file that activates Telemac.
 * Modify `TELEMAC_CONFIG_DIR`= and `TELEMAC_CONFIG_NAME`= as mentioned above. 
@@ -137,7 +137,7 @@ Folder containing the Python virtual environment. As explained before, this fold
 Folder that should contain the necessary files to run Telemac and a subfolder called *auto-saved-results*. To this point, the package only runs hydrodynamic simulations but it can also be implemented to run other Telemac modules. To test the package, the simulation folder has already a case study `2dsteady.cas`. (Hint: if this folder is not present while download, create it before running the code)
 * `.cas` - Telemac Steering file (2dsteady.cas for this case study),
 * `.cli` - Boundary conditions file (boundaries.cli for this case)
-* `.slf` - Mesh file (qgismesh.slf for this case) \\
+* `.slf` - Mesh file (qgismesh.slf for this case) \
 
 The folder should look like this:
 
@@ -160,8 +160,7 @@ Additionally, returns a list of the random parameters that were used to create t
 
 * `sim_output_df`: Creates a data frame of the model outputs and saves it as an excel file in the auto-saved-results. 
 ***
-`plot.py`: Python script that extracts data (calibration quantity) from the model outputs dataframe for specific nodes where measured data is available. 
-Python script that plots the values of the calibration quantity for the calibration nodes.  
+`plot.py`: Python script that extracts data (calibration quantity) from the model outputs `.xlsx` for specific nodes where measured data is available. Class `PlotGraph` and methods to plot graph for multiple simulation for specific node writen inside the `nodes_input.txt`. The script plots a line grapg using method `plot_data` for velocity/Water depth vs Nodes and scatter plot for mean value using method `average`. 
 ***
 
 `log_functions.py`: Python scripts that logs the actions to a logfile (logfile.log). The logfile is saved in: *log_directory*  
@@ -176,7 +175,7 @@ This script works by executing subprocesses of the file called `package_launcher
 
 `package_launcher.py`: This python script owns a class called `TelemacSimulations`. The methods in this class are:
 * `single_run_simulation`: Runs a single Telemac simulation and extracts the output values as a .txt file of the selected calibration parameter at the last time step of the simulation. 
-* `import_excel_file`: Imports the necessary user input parameters for Bayesian calibration purposes from the user input parameters excel file **.xlsx.
+* `import_excel_file`: Imports the necessary user input parameters for Bayesian calibration purposes from the user input parameters excel file `.xlsx`.
 ***
 
 `bayesian_gpe.py`: Contains a class and methods for running a stochastic calibration of a deterministic model by using a Gaussian process emulator (GPE) - based surrogate model that is fitted through Bayesian active learning (BAL).
@@ -185,12 +184,13 @@ This script works by executing subprocesses of the file called `package_launcher
 `active_learning.py`: Auxiliary functions for the stochastic calibration of model using Surrogate-Assisted Bayesian inversion
 ***
 
-
+`nodes_input.txt`: File contains the nodes are required or measured data are available.  
+***
 
 ### use-case-xlsx
-This folder contains the ***.xlsx file which holds the user input parameters for surrogate model construction and Bayesian Calibration. Before executing the code, ensure you have the user input data in this Excel (.xlsx) file. Modify this file according to the instructions provided in the HINT column. It should contain all the necessary parameters for running the simulation. At the end of the column, you'll find hints for specific parameters (e.g., Simulation path - hint: Copy the path from the file explorer). The results of the simulation will be stored in a sub-folder named "auto-results". 
+This folder contains the ***.xlsx file which holds the user input parameters for surrogate model construction and Bayesian Calibration. Before executing the code, ensure you have the user input data in this Excel (.xlsx) file. Modify this file according to the instructions provided in the HINT column. It should contain all the necessary parameters for running the simulation. At the end of the column, you'll find hints for specific parameters (e.g., Simulation path - hint: Copy the path from the file explorer). The results of the simulation will be stored in a sub-folder named "auto-saved-results". 
 
-The **.xlsx file has three main sections to insert data. 
+The `.xlsx` file has three main sections to insert data. 
 * *TELEMAC*,
 * *ACTIVE LEARNING*,
 * *DEFINE PRIOR DISTRIBUTIONS*.
@@ -236,7 +236,8 @@ In the following table you will find the parameters that need to be modified to 
    
 4. Go into **env-scripts** folder and modify the paths of the bash .sh files **activateHBCtelemac.sh** and **activateTM.sh**  as mentioned above in [env-scripts](#env-scripts).
 5. Go into HyBayesCal folder and open **config.py**. Modify the variables in this script considering the previously noted recommendations in [config.py](#HyBayesCal).
-6. Activating Environments: Open a Linux terminal, navigate to **env-scripts** folder and activate for the first time both the Python virtual environment *HBCenv* and Telemac compiler bash script *pysource.template.sh* by typing:
+6. Go into `nodes_input.txt` and mark the required or knows nodes on your grid. 
+7. Activating Environments: Open a Linux terminal, navigate to **env-scripts** folder and activate for the first time both the Python virtual environment *HBCenv* and Telemac compiler bash script *pysource.template.sh* by typing:
        ```
        source activateHBCtelemac.sh
        ```
@@ -247,7 +248,7 @@ In the following table you will find the parameters that need to be modified to 
    > Loading TELEMAC config...
     **Success**
    ```
-7. Runing the code: In the same terminal navigate to the folder HyBayesCal where all the required python scripts are and run the **`main.py`** script.
+8. Runing the code: In the same terminal navigate to the folder HyBayesCal where all the required python scripts are and run the **`main.py`** script.
    ```
     python main.py
     ```
