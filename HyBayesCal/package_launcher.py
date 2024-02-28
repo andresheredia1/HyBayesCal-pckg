@@ -96,7 +96,6 @@ class TelemacSimulations:
             'init_run_sampling': xlsx_import.init_run_sampling,
             'calib_param_range': xlsx_import.CALIB_PAR_SET['FRICTION COEFFICIENT']['bounds'],
             'CALIB_TARGETS': xlsx_import.CALIB_TARGETS,
-            # Add other parameters here as needed
             }
         
     def __call__(self):
