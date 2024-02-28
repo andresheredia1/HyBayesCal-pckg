@@ -3,13 +3,37 @@ from bayesian_gpe import *
 import json
 import pdb # Needed to debug in a terminal
 class TelemacSimulations:
+    """
+    Class author: Andres
+    This class encapsulates methods for running Telemac simulations and importing parameters from an Excel file.
+
+    Parameters:
+    - input_workbook_name: (str) Path to the input Excel workbook containing simulation parameters.
+    - method_name: (str) Name of the method to execute ('import_excel_file' or 'multiple_runs').
+    - args: Additional positional arguments.
+    - kwargs: Additional keyword arguments.
+
+    Methods:
+    - __init__(self, input_workbook_name, method_name, *args, **kwargs): Initializes TelemacSimulations instance with 
+        provided parameters.
+    - single_run_simulation(self): Executes a single Telemac simulation based on command-line arguments.
+    - import_excel_file(self): Imports parameters from an Excel file and returns a dictionary containing the parameters.
+    - __call__(self): Calls the appropriate method based on the provided 'method_name' argument.
+    """
+    
     def __init__(self, input_worbook_name=str(sys.argv[2]),
                  method_name=str(sys.argv[1]),
                  *args,
                  **kwargs):
         self.input_worbook_name=input_worbook_name
         self.method_name=method_name
+                     
     def single_run_simulation(self,user_input_parameters):
+        """
+        Executes a single Telemac simulation based on command-line arguments.
+        :return: None
+        """
+        
         if len(sys.argv) != 6:
             print(len(sys.argv))
             print("Incorrect number of command-line arguments passed to the script!!")
@@ -39,10 +63,20 @@ class TelemacSimulations:
             n_processors=self.N_CPUS,
         )
         tm_model.run_simulation()
-        modelled_results=tm_model.get_variable_value(slf_file_name=self.result_filename_path,calibration_par=self.CALIB_TARGETS,specific_nodes=None,save_name=self.tm_model_dir+f"/auto-saved-results/{self.results_filename_base}-{self.i}.txt")
+        modelled_results=tm_model.get_variable_value\
+            (slf_file_name=self.result_filename_path,
+             calibration_par=self.CALIB_TARGETS,specific_nodes=None,
+             save_name=self.tm_model_dir+f"/auto-saved-results/"
+                                         f"{self.results_filename_base}-{self.i}.txt"
+             )
         print("CALIB_TARGETS value:", self.CALIB_TARGETS)
-
+        
     def import_excel_file(self):
+        """
+        Imports parameters from an Excel file.
+        :return: Dictionary containing imported parameters.
+        """    
+        
         if len(sys.argv) != 3:
             print("Incorrect number of command-line arguments passed to the SUBPROCESS!!")
             sys.exit(1)
@@ -64,7 +98,14 @@ class TelemacSimulations:
             'CALIB_TARGETS': xlsx_import.CALIB_TARGETS,
             # Add other parameters here as needed
             }
+        
     def __call__(self):
+        """
+        Calls the appropriate method based on the provided 'method_name' argument.
+        Returns: None
+        -------
+        """
+        
         if self.method_name == 'import_excel_file':
             output = self.import_excel_file()
             with open('user_parameters.json', 'w') as file:
@@ -73,7 +114,7 @@ class TelemacSimulations:
             with open('user_parameters.json', 'r') as file:
                 user_input_parameters = json.load(file)
             self.single_run_simulation(user_input_parameters)
+            
 if __name__ == "__main__":
-
     simulation = TelemacSimulations()
     simulation() 
