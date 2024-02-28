@@ -1,9 +1,8 @@
-import logging
-import os
+from config import *
 #from log_functions import *
 #import logging
-import random
-import pandas as pd
+#import random
+
 """
 Creates .cas files according to the number in full complexity models
 """
@@ -71,10 +70,11 @@ def sim_output_df(tm_model_dir, init_runs,results_filename_base,output_excel_fil
         df_outputs = pd.concat([df_outputs, data.iloc[:, 1]], axis=1)
 
     # Set column names
-    column_names = [f"File: {results_filename_base}-{i+1} - {random_param[i]} - {random_flowrate[i]}" for i in range(len(results_filename_list_txt))]
+    column_names = [f"Archivo: {results_filename_base}-{i+1} - {random_param[i]} - {random_flowrate[i]}" for i in range(len(results_filename_list_txt))]
     df_outputs.columns = column_names
     df_outputs['TM Nodes'] = range(1, len(df_outputs) + 1)
     df_outputs.set_index('TM Nodes', inplace=True)
     df_outputs.to_excel(auto_saved_results_path + "/" + output_excel_file_name)
     print("DataFrame saved to Excel file:", output_excel_file_name)
     return df_outputs
+
