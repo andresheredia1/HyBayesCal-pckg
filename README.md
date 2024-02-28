@@ -276,4 +276,4 @@ In the following table you will find the parameters that need to be modified to 
 * https://github.com/andresheredia1/surrogated_assisted_bayesian_calibration_forked.git
 
 # License
-This project is licensed under the GNU - see the LICENSE.md file for details- TBC
+This project is licensed under the GNU.
