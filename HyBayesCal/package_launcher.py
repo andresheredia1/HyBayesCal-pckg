@@ -1,11 +1,8 @@
 import sys
 from bayesian_gpe import *
 import json
-import pdb
+import pdb # Needed to debug in a terminal
 class TelemacSimulations:
-    # def __init__(self,
-                 # input_worbook_name="/home/amintvm/modeling/hybayescalpycourse/use-case-xlsx/tm-user-input_parameters_15_02_2024.xlsx",
-                 # method_name='import_excel_file', *args, **kwargs):
     def __init__(self, input_worbook_name=str(sys.argv[2]),
                  method_name=str(sys.argv[1]),
                  *args,
@@ -13,19 +10,14 @@ class TelemacSimulations:
         self.input_worbook_name=input_worbook_name
         self.method_name=method_name
     def single_run_simulation(self,user_input_parameters):
-        """
-        Run a single Telemac simulation.S
-        """
-        #pdb.set_trace()
-        if len(sys.argv) != 7:
+        if len(sys.argv) != 6:
             print(len(sys.argv))
             print("Incorrect number of command-line arguments passed to the script!!")
             sys.exit(1)
         self.i = int(sys.argv[2]) #2
-        self.this_dir = str(sys.argv[3])#'/home/amintvm/modeling/hybayescalpycourse_md/HyBayesCal'
-        self.case_file = str(sys.argv[4])#'2dsteady-1.cas'
-        self.result_filename_path=str(sys.argv[5])
-        self.results_filename_base=str(sys.argv[6])
+        self.case_file = str(sys.argv[3])#'2dsteady-1.cas'
+        self.result_filename_path=str(sys.argv[4])
+        self.results_filename_base=str(sys.argv[5])
         self.tm_model_dir = user_input_parameters['SIM_DIR']
         self.tm_xd = user_input_parameters['tm_xD']
         self.N_CPUS=user_input_parameters['N_CPUS']
@@ -48,7 +40,6 @@ class TelemacSimulations:
         )
         tm_model.run_simulation()
         modelled_results=tm_model.get_variable_value(slf_file_name=self.result_filename_path,calibration_par=self.CALIB_TARGETS,specific_nodes=None,save_name=self.tm_model_dir+f"/auto-saved-results/{self.results_filename_base}-{self.i}.txt")
-        # print(type(modelled_results))
         print("CALIB_TARGETS value:", self.CALIB_TARGETS)
 
     def import_excel_file(self):
@@ -76,13 +67,13 @@ class TelemacSimulations:
     def __call__(self):
         if self.method_name == 'import_excel_file':
             output = self.import_excel_file()
-            with open('data.json', 'w') as file:
+            with open('user_parameters.json', 'w') as file:
                 json.dump(output, file)
         elif self.method_name == 'multiple_runs':
-            with open('data.json', 'r') as file:
+            with open('user_parameters.json', 'r') as file:
                 user_input_parameters = json.load(file)
             self.single_run_simulation(user_input_parameters)
 if __name__ == "__main__":
 
     simulation = TelemacSimulations()
-    simulation() # This will call the __call__ method and execute the appropriate action based on the command-line arguments
+    simulation() 
