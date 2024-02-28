@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-1. [Project's name](#Project's name)
+1. [Project's name](##Project's name)
 2. [Project purpose/description](#Project purpose/description)
 3. [Motivation](#Motivation)
 
