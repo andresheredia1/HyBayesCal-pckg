@@ -13,6 +13,8 @@
 7. [Installation and run a project](#Installation-and-run-a-project)
 
    7.1 [Creation of HBCenv](###Creation-of-HBCenv)
+8. [Package Folders and Files](#Package-Folders-and-Files)
+9. [Steps to run the package ](#Steps-to-run-the-package )
 
 ***
 ## Project's name
@@ -225,7 +227,7 @@ In the following table you will find the parameters that need to be modified to 
 | ......                                          | ......                                                    |        ... |
 
 
-### Steps to Run Telemac Simulation  
+## Steps to run the package 
 1. Since the package runs iteratively several Telemac simulations, you must ensure that Telemac is installed in your computer and properly running. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation). It is important to test one simulation from */home/......../......./telemac-mascaret/examples/telemac2d/* in your telemac folder. 
 2. Once you have checked that Telemac runs properly in your system, set all the necessary user input parameters in the input parameters excel file located in the folder called: **use-case-xlsx**. Consider the comments in the HINT column. Remember that only the aboved mentioned parameters shown in [use-case-xlsx folder](#use-case-xlsx) are necessary to run the code at this point. Update the values of required parameters, editing only the cells highlighted in orange color. Save and close the .xlsl file 
    
