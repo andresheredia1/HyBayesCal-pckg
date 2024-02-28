@@ -255,46 +255,17 @@ In the following table you will find the parameters that need to be modified to 
 ![simulationxxxx folder](images/Figure5.png)
 
 9. Similarly, in the **auto-saved-results** folder you will find the **.slf, **.txt and **.xlsx output files from the Telemac simulations. An image of how it looks like is shown:
-10. 
+
 ![auto-saved-results](images/Figure6.png)
 
-
-
-    
-  * To run Telemac simulations, ensure that Telemac is installed. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation).
-  * To run multiple Telemac simulations, follow these steps:
-    * Update `config.py` as mentioned above 
-    * Update `.xlsx` used input file as mentioned above 
-      1. Locate the .xlsl file at the specified location 
-      2. Choose the number of runs to simulate 
-      3. Update the values of required parameters, editing only the cells highlighted in orange color. ***Warning: Do not edit anything else.***
-      4. Save and close the .xlsl file 
-    * Update the `activeHBCtelemac.sh` as mentioned above
-    * Activating Environment: This package employs a virtual environment, with the activation script named `activateHBCtelemac.sh`. To activate this environment:
-      1. Navigate to the directory containing the activation script: (for example)
-       ```
-       cd modeling/hybayescalpycourse/env-scripts
-       ```
-      2. Press Enter to execute the command.
-      3. Activate the environment using:
-       ```
-       source activateHBCtelemac.sh
-       ```
-  * Navigate to the folder HyBaseCal where all the required python script are present 
-  * Run the `main.py` script 
-    ```
-    python main.py
-    ```
-![Running main.py](images/Figure3.png)
-
-# Author 
+# Authors 
 * Andres Heredia Hidalgo
 * Abhishek 
 
 # References
-https://hydro-informatics.com/
-http://www.opentelemac.org/
-https://github.com/andresheredia1/surrogated_assisted_bayesian_calibration_forked.git
+* https://hydro-informatics.com/
+* http://www.opentelemac.org/
+* https://github.com/andresheredia1/surrogated_assisted_bayesian_calibration_forked.git
 
 # License
 This project is licensed under the GNU - see the LICENSE.md file for details- TBC
