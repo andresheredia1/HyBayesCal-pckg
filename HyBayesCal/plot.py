@@ -49,30 +49,21 @@ class PlotGraph:
         """
        
         try:
-            # Read nodes from text file
-            nodes = self.read_txt()
+            nodes = self.read_txt() # Read nodes from text file
             if nodes is None:
                 return
 
             if self.df_outputs is None:
                 self.read_excel_file()  # Read Excel file if DataFrame is not yet initialized
-
-            # Check if any value in the DataFrame is less than 0
-            is_velocity = (self.df_outputs < 0).any().any()
-
-            # Filter data based on nodes from nodes_input.txt
-            filtered_df = self.df_outputs[self.df_outputs.iloc[:, 0].isin(nodes)]
-
-            # Plotting each column as a separate line with legend labels
-            for i, column in enumerate(filtered_df.columns[1:], start=1):
+            is_velocity = (self.df_outputs < 0).any().any() # Check if any value in the DataFrame is less than 0
+            filtered_df = self.df_outputs[self.df_outputs.iloc[:, 0].isin(nodes)] # Filter data based on nodes from nodes_input.txt          
+            for i, column in enumerate(filtered_df.columns[1:], start=1): # Plotting each column as a separate line with legend labels
                 y_values = filtered_df[column].values
                 x_values = filtered_df.iloc[:, 0].values
                 label = f'Run {i}'  # Update legend label
                 plt.plot(x_values, y_values, label=label, marker='o')
-
             plt.xlabel('Nodes')  # Use the first column as x-axis label
             plt.ylabel('Velocity' if is_velocity else 'Water Depth')  # Determine y-axis label based on data
-            # plt.title('Velocity Profile')
             plt.legend()
             plt.gcf().set_size_inches(10, 6)  # Set the size of the graph
             plt.savefig(os.path.join(self.file_path, "data.jpg"))  # Save the plot as a .jpg file
@@ -91,21 +82,11 @@ class PlotGraph:
         try:
             if self.df_outputs is None:
                 self.read_excel_file()  # Read Excel file if DataFrame is not yet initialized
-
-            # Check if any value in the DataFrame is less than 0
-            is_velocity = (self.df_outputs < 0).any().any()
-
-            # Convert DataFrame to NumPy array for indexing
-            df_array = self.df_outputs.to_numpy()
-
-            # Calculate the average of each column 
-            averages = np.mean(df_array[1:, 1:], axis=0)
-
-            # Determine the number of columns present
-            num_columns = len(self.df_outputs.columns[1:])
-
-            # Plotting the averages as scatter plot
-            plt.scatter(np.arange(1, num_columns + 1), averages, marker='o',
+            is_velocity = (self.df_outputs < 0).any().any() # Check if any value in the DataFrame is less than 0
+            df_array = self.df_outputs.to_numpy() # Convert DataFrame to NumPy array for indexing
+            averages = np.mean(df_array[1:, 1:], axis=0) # Calculate the average of each column 
+            num_columns = len(self.df_outputs.columns[1:]) # Determine the number of columns present          
+            plt.scatter(np.arange(1, num_columns + 1), averages, marker='o',  # Plotting the averages as scatter plot
                         label=[f'Run {i}' for i in range(1, num_columns + 1)])  # Use scatter plot
             plt.xlabel('Runs')  # Use the first row as x-axis label
             plt.ylabel('Average Velocity' if is_velocity else 'Average Water Depth')  # Label for y-axis
