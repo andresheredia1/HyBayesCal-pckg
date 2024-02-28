@@ -26,6 +26,7 @@ output_excel_file_name="simulation_outputs.xlsx" # Choose a name for the **.xlsx
 log_directory = '/home/amintvm/modeling/HyBayesCal-pckg-master/simulationxxxx/auto-saved-results' #Choose a directory where you want to save the logfile.log. 
 node_file_name='nodes_input.txt' # file to filter the required Nodes
 node_file_path='/home/amintvm/modeling/HyBayesCal-pckg-master/HyBayesCal/' # Location to place the .txt file
+excel_file_path='/home/amintvm/modeling/Simulation/HyBayesCal-pckg-master/simulationxxxx/auto-saved-results/' #Location to place the simulation_outputs.xlsx file
 # Absolute path of the current directory
 this_dir = os.path.abspath(".")
 logfile_path = os.path.join(log_directory, "logfile.log")
