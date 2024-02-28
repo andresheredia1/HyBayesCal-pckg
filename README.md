@@ -65,7 +65,7 @@ The Virtual Machine configuration for this project is detailed below. For furthe
 
 ## Code Diagram
 
-![UML Diagram](images/Figure1.png)
+![UML Diagram](images/Figure7.png)
 
 ## Brief Overview of the Package Components
 * This package uses the python package [HyBayesCal-pckg](https://github.com/andresheredia1/HyBayesCal-pckg.git)
