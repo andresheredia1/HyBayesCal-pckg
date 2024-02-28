@@ -64,7 +64,9 @@ The Virtual Machine configuration for this project is detailed below. For furthe
   * scikit-learn
 
 ## Code Diagram
+
 ![UML Diagram ](images/Figure7.png)
+
 ## Brief Overview of the Package Components
 * This package uses the python package [HyBayesCal-pckg](https://github.com/andresheredia1/HyBayesCal-pckg.git)
 * ```main.py```
