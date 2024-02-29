@@ -69,15 +69,15 @@ The Virtual Machine configuration for this project is detailed below. For furthe
 
 ## Brief Overview of the Package Components
 * This package uses the python package [HyBayesCal-pckg](https://github.com/andresheredia1/HyBayesCal-pckg.git)
-* ```main.py``` contains 2 methods and log action. This is stand-alone file.
-* ```config.py``` contain basic and global libraries along with the file path used in project.
-* ```file_creator.py``` contains 2 methods to edit `.cas` and export the Dataframe to `.xlsx`. 
+* ```main.py``` contains 2 methods and log action. This is a stand-alone python script.
+* ```config.py``` contains basic and global libraries along with the desired file paths used in project.
+* ```file_creator.py``` contains 2 functions to edit `.cas` files and export the simulations outputs Dataframe to `.xlsx`. 
 * ```plot.py``` contains a class `PlotGraph` and 5 methods to read `.txt.`, `.xslx` and plot the graphs. 
 * ```log_functions.py``` contains a method `log_action` and a submethod for wrapper function.
 * ```package_launcher.py``` contains a custom class ```TelemacSimulations```. This class contains 2 methods and 4 magic methods
 
 
-## Installation and run a project 
+## Installation and running a project 
 ***
 To use this package, ensure that the previously mentioned software and Python libraries are installed:
 * Upon the initial launch of the VM, the first essential task is to update the system (which should be performed periodically):
@@ -94,11 +94,12 @@ To use this package, ensure that the previously mentioned software and Python li
   sudo apt-get remove app_name
   ```
 Download the [package](https://github.com/andresheredia1/HyBayesCal-pckg.git) and copy it to a desired folder. The download version of the package has some folders and scripts  which are explained in detail in the following lines. 
-Once you downloaded the package you will see these folders. 
+
+Once you downloaded the package you will see these folders and files. 
 
 ![Package Folders](images/Figure1.png)
 
-The package runs when a virtual environment is already activated. Thus, the code requires the creation and activation of a Python virtual environment with all dependencies and Python libraries. The downloaded version of the package has already an environment folder called HBCenv, however you can also create a new one called HBCenv with all the necessary requirements shown in the file *requirementsHBCenv.txt*. 
+The package runs when a python virtual environment with all the requirements is already activated. Thus, the code requires the creation and activation of a Python virtual environment with all dependencies and Python libraries. The downloaded version of the package has already an environment folder called HBCenv, however you can also create a new one called HBCenv with all the necessary requirements shown in the file *requirementsHBCenv.txt*. 
 
 ### Creation of HBCenv  
 To create HBCenv, navigate to the folder you have copied the package (i.e. HyBayesCal-pckg) using a Linux terminal and create the virtual environment as follows:
@@ -117,7 +118,7 @@ pip install package_name
 ***
 
 ### env-scripts
-This folder contains the bash `.sh` files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important that prior to running the package for the first time, to open each file and modify the directories based on your system. 
+This folder contains the bash `.sh` files to activate Telemac and HBCenv environments, which are necessary to run the package. It is important, that prior to running the package for the first time, to open each file and modify the directories based on your system. 
 Within this folder you will find 2 bash .sh files:
 
 * `activateHBCtelemac.sh`: Bash file that activates Telemac and Python environment for the first run. Change the paths according to the following recommendations.
@@ -125,16 +126,17 @@ Within this folder you will find 2 bash .sh files:
 * `TELEMAC_CONFIG_NAME` = Name of Telemac compiler bash script `.sh` `pysource.template.sh` (i.e. pysource.gfortranHPC.sh).
 * `HBCenv_DIR` = /full/path/to/HBCenv
 
-**`activateTM.sh`**: Bash file that activates Telemac.
+**`activateTM.sh`**: Bash file that compiles Telemac.
 * Modify `TELEMAC_CONFIG_DIR`= and `TELEMAC_CONFIG_NAME`= as mentioned above. 
 
-**Tip:** Make sure to test a single Telemac simulation from telemac/examples/. You can refer to the [Telemac Installation Guide](http://wiki.opentelemac.org/doku.php?id=installation_on_linux) if help needed. 
+**Tip:** Make sure to test a single Telemac simulation from telemac/examples/ so it runs properly. You can refer to the [Telemac Installation Guide](http://wiki.opentelemac.org/doku.php?id=installation_on_linux) if help needed on how to run and install Telemac. 
 
 ### HBCenv
 Folder containing the Python virtual environment. As explained before, this folder holds the required python libraries to run the code.
  
 ### Simulationxxxx
-Folder that should contain the necessary files to run Telemac and a subfolder called *auto-saved-results*. To this point, the package only runs hydrodynamic simulations but it can also be implemented to run other Telemac modules. To test the package, the simulation folder has already a case study `2dsteady.cas`. (Hint: if this folder is not present while download, create it before running the code)
+Folder that should contain the necessary files to run Telemac and a subfolder called *auto-saved-results*. The folder *auto-saved-results* has an empty file that can be deleted once the package has been downloaded. To this point, the package only runs hydrodynamic simulations and one calibration parameter but it can also be implemented to run other Telemac modules and with other calibration parameters.  The folder must also have  the necessary Telemac files .cas, .cli , .slf and others. To test the package, the simulation folder has already a case study `2dsteady.cas`with the additional Tekemac files. (Hint: if the folder *auto-saved-results* is not present after download, create it before running the code).
+
 * `.cas` - Telemac Steering file (2dsteady.cas for this case study),
 * `.cli` - Boundary conditions file (boundaries.cli for this case)
 * `.slf` - Mesh file (qgismesh.slf for this case) \
@@ -146,24 +148,28 @@ The folder should look like this:
 ### HyBayesCal
 Bayesian Calibration Package. In this folder you will find the following python scripts:   
 ***
-`config.py`: Python script that contains all the necessary file paths and variables. Change these according to the following comments:
-* `input_worbook_name` =* Name of `.xlsx` file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
-* `activateTM_path` = Path to the Telemac activation file (“home/… /… /HyBayesCal-pckg/env-scripts/activateTM.sh”)
+`config.py`: Python script that contains all the necessary file paths and variables. Change these according to the following comments before the first run:
+* `input_worbook_name` = Name of `.xlsx` file containing user input parameters including the whole path (“home/… /… /HyBayesCal-pckg/use-case-xlsx/*.xlsx”)
+* `activateTM_path` = Path to the Telemac activation/compiler file (“home/… /… /HyBayesCal-pckg/env-scripts/activateTM.sh”)
 * `results_filename_base` = Write this according to how it is written in the `.cas` base file. Do not add the extension. 
 * `output_excel_file_name`=` Choose a name for the `.xlsx` output file which is saved in auto-saved-results.
+* `log_directory` = Desired path to save the LOGFILE.log
+* `node_file_name`= Path to place the .txt file containing the number of nodes where measured data is available.
+* `node_file_path`= Path to place the .txt file containing the number of nodes where measured data is available.
+* `excel_file_path`= Path were the simulation_outputs.xlsx file is located. This path is the `auto-saved-results` folder path. 
 ***
 `file_creator.py`: Python script that has two functions: 
 
-* `cas_creator`: Creates the required number `.cas` files based on a standard (base) `.cas` file. For this project,  `.cas` files are created based on random friction coefficients with a fixed range of values extracted from the input parameters excel file `.xlsx` from **Use-case-xlsx** folder. Since every `.cas` file and calibration parameter might be different, the code block denoted as : (## This code block should be changed according to the used `.cas` base file.)  in this python script should be modified according to the `.cas` base file that is currently used.
+* `cas_creator`: Creates the required number of `.cas` files based on a standard (base) `.cas` file located in the folder **Simulationxxxx**. The number of `.cas` files depends on the desired number of `Initial full-complexity model runs (init_runs)` retrieved from the input parameters excel file `.xlsx` from **Use-case-xlsx** folder. For this project,  `.cas` files are created for one calibration parameter (e.g.random friction coefficient) from a fixed range of values extracted from the input parameters excel file `.xlsx`. Since every `.cas` file and calibration parameter might be different, the code block denoted as : (## This code block should be changed according to the used `.cas` base file.)  in this python script should be modified according to the `.cas` base file that is currently used in case a different calibration parameter needs to be simulated. 
 
-Additionally, returns a list of the random parameters that were used to create the `.cas` files and a list of the output `.slf` files’ paths. 
+Additionally, the script returns a list of the random parameters that were used to create the `.cas` files and a list of the output `.slf` files’ paths. 
 
-* `sim_output_df`: Creates a data frame of the model outputs and saves it as an excel file in the auto-saved-results. 
+* `sim_output_df`: Creates a data frame of the model outputs and saves it as an excel file `output_excel_file_name` in the folder **auto-saved-results**. 
 ***
 `plot.py`: Python script that extracts data (calibration quantity) from the model outputs `.xlsx` for specific nodes where measured data is available. Class `PlotGraph` and methods to plot graph for multiple simulation for specific node writen inside the `nodes_input.txt`. The script plots a line grapg using method `plot_data` for velocity/Water depth vs Nodes and scatter plot for mean value using method `average`. 
 ***
 
-`log_functions.py`: Python scripts that logs the actions to a logfile (logfile.log). The logfile is saved in: *log_directory*  
+`log_functions.py`: Python scripts that logs the actions to a logfile (LOGFILE.log). The logfile is saved in: *log_directory*  
 ***
 
 `main.py`: Python script that should be called from Linux terminal. It executes two actions: 
@@ -173,7 +179,7 @@ Additionally, returns a list of the random parameters that were used to create t
 This script works by executing subprocesses of the file called `package_launcher.py`.  
 ***
 
-`package_launcher.py`: This python script owns a class called `TelemacSimulations`. The methods in this class are:
+`package_launcher.py`: This python script owns a custom class called `TelemacSimulations`. The methods in this class are:
 * `single_run_simulation`: Runs a single Telemac simulation and extracts the output values as a .txt file of the selected calibration parameter at the last time step of the simulation. 
 * `import_excel_file`: Imports the necessary user input parameters for Bayesian calibration purposes from the user input parameters excel file `.xlsx`.
 ***
@@ -188,7 +194,7 @@ This script works by executing subprocesses of the file called `package_launcher
 ***
 
 ### use-case-xlsx
-This folder contains the ***.xlsx file which holds the user input parameters for surrogate model construction and Bayesian Calibration. Before executing the code, ensure you have the user input data in this Excel (.xlsx) file. Modify this file according to the instructions provided in the HINT column. It should contain all the necessary parameters for running the simulation. At the end of the column, you'll find hints for specific parameters (e.g., Simulation path - hint: Copy the path from the file explorer). The results of the simulation will be stored in a sub-folder named "auto-saved-results". 
+This folder contains the ***.xlsx file which holds the user input parameters for surrogate model construction and Bayesian Calibration. Before executing the code, ensure you have the correct user input data in this Excel (.xlsx) file. Modify this file according to the instructions provided in the HINT column. It should contain all the necessary parameters for running the simulation. At the end of the column, you will find hints for specific parameters (e.g., Simulation path - hint: Copy the path from the file explorer). The results of the simulation will be stored in a sub-folder named **auto-saved-results**. 
 
 The `.xlsx` file has three main sections to insert data. 
 * *TELEMAC*,
@@ -197,7 +203,7 @@ The `.xlsx` file has three main sections to insert data.
 
 For now, the code runs the initial full-complexity model runs according to what is typed in the corresponding cell **Initial full-complexity model runs (init_runs)** and pulls out the model outputs for each run as text **.txt files according to what is chosen in **Calibration quantity 1 (calib_target1)** cell. The parameter BOTTOM is not available at this point because the GAIA module of Telemac is not used however it can be easily implemented to extract those values as well. 
 
-In the following table you will find the parameters that need to be modified to run this package. The rest of the parameters in the .xlsx file are not yet available. 
+In the following tables you will find the parameters that need to be modified to run this package. The rest of the parameters in the .xlsx file are not yet available. 
 
                                                               TELEMAC
 
@@ -231,13 +237,16 @@ In the following table you will find the parameters that need to be modified to 
 
 
 ## Steps to run the package 
-1. Since the package runs iteratively several Telemac simulations, you must ensure that Telemac is installed in your computer and properly running. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation). It is important to test one simulation from */home/......../......./telemac-mascaret/examples/telemac2d/* in your telemac folder. 
-2. Once you have checked that Telemac runs properly in your system, set all the necessary user input parameters in the input parameters excel file located in the folder called: **use-case-xlsx**. Consider the comments in the HINT column. Remember that only the aboved mentioned parameters shown in [use-case-xlsx folder](#use-case-xlsx) are necessary to run the code at this point. Update the values of required parameters, editing only the cells highlighted in orange color. Save and close the .xlsl file 
+1. Since the package runs iteratively several Telemac simulations, you must ensure that Telemac is installed in your computer and properly running. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation). It is important to test one simulation from */home/......../......./telemac-mascaret/examples/telemac2d/* from your telemac folder. 
+2. Once you have checked that Telemac runs properly in your system, set all the necessary user input parameters in the **input parameters excel file** located in the folder called: **use-case-xlsx**. Consider the comments in the HINT column. Remember that only the aboved mentioned parameters shown in [use-case-xlsx folder](#use-case-xlsx) are necessary to run the code at this point. Update the values of required parameters, editing only the cells highlighted in orange color. Save and close the .xlsl file 
    
-4. Go into **env-scripts** folder and modify the paths of the bash .sh files **activateHBCtelemac.sh** and **activateTM.sh**  as mentioned above in [env-scripts](#env-scripts).
-5. Go into HyBayesCal folder and open **config.py**. Modify the variables in this script considering the previously noted recommendations in [config.py](#HyBayesCal).
-6. Go into `nodes_input.txt` and mark the required or knows nodes on your grid. 
-7. Activating Environments: Open a Linux terminal, navigate to **env-scripts** folder and activate for the first time both the Python virtual environment *HBCenv* and Telemac compiler bash script *pysource.template.sh* by typing:
+3. Go into **env-scripts** folder and modify the paths of the bash .sh files **activateHBCtelemac.sh** and **activateTM.sh**  as mentioned above in [env-scripts](#env-scripts).
+4. Go into HyBayesCal folder and open **config.py**. Modify the variables in this script considering the previously noted recommendations in [config.py](#HyBayesCal).
+    
+   4.1. Remember that since every `.cas` file and calibration parameter might be different in any simulation, the code block denoted as : (## This code block should be changed according to the used `.cas` base file.)  in this python script **file_creator.py** should be modified according to the `.cas` base file that is currently being used. This block of code replaces the desired calibration parameter by random values based on the range shown in the user input excel file.
+   
+5. Go into `nodes_input.txt` and mark the required or knows nodes on your grid where measured data is available. These nodes will be used for Bayesian Calibration purposes. 
+6. Activating Environments: Open a Linux terminal, navigate to **env-scripts** folder and activate for the first time both the Python virtual environment *HBCenv* and Telemac compiler bash script *pysource.template.sh* by typing:
        ```
        source activateHBCtelemac.sh
        ```
@@ -248,7 +257,7 @@ In the following table you will find the parameters that need to be modified to 
    > Loading TELEMAC config...
     **Success**
    ```
-8. Runing the code: In the same terminal navigate to the folder HyBayesCal where all the required python scripts are and run the **`main.py`** script.
+7. Runing the code: In the same terminal navigate to the folder HyBayesCal where all the required python scripts are and run the **`main.py`** script.
    ```
     python main.py
     ```
