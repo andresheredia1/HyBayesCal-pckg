@@ -11,9 +11,6 @@
 5. [Package requirements](#Package-requirements)
 6. [Code diagram UML](#Code-Diagram)
 7. [Installation and run a project](#Installation-and-run-a-project)
-
-   7.1 [Creation of HBCenv](#Creation-of-HBCenv)
-   
 8. [Package Folders and Files](#Package-Folders-and-Files)
 9. [Steps to run the package ](#Steps-to-run-the-package )
 
