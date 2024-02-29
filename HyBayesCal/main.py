@@ -12,7 +12,7 @@ def import_input_parameters(input_worbook_name,method_name='import_excel_file'):
     Function to import input parameters from an Excel workbook.
     
     Parameters: input_workbook_name (str): Name of the input Excel workbook.
-        method_name (str): Name of the method for importing.
+    method_name (str): Action executed in package_launcher.py. Name of method for importing data from the excel file.
         
     Returns: dict: User input parameters loaded from the Excel file.
     """
@@ -43,7 +43,9 @@ def multiple_run_simulation(results_filename_list,method_name='multiple_runs'):
     Function to perform multiple run simulations.
     
     Parameters: results_filename_list (list): List of result filename paths.
-        method_name (str): Name of the method for multiple runs.
+        method_name (str): Action executed in package_launcher.py. Name of method for running Telemac simulations.
+    
+    Returns: None
     """
     
     auto_saved_results_path = os.path.join(tm_model_dir,"auto-saved-results")
