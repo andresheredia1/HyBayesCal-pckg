@@ -277,7 +277,9 @@ This folder constains the figures (screen shots) that used to develop the README
 
 ![average_plot](images/Figure9.png)  
 
+An excel file with the model outputs at all nodes and at the last time step is saved in the folder **auto-saved-results**
 
+![simulation_outputs.xlsx](images/Figure10.png) 
 # Authors 
 * Andres Heredia Hidalgo
 * Abhishek 
