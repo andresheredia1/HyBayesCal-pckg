@@ -24,7 +24,7 @@ except ModuleNotFoundError as additional:
         'pandas, maptlotlib, random)')
     print(additional)
 
-# Define file paths
+# Definition of file paths
 
 input_worbook_name = "/home/amintvm/modeling/HyBayesCal-pckg-master/use-case-xlsx/tm-user-input_parameters.xlsx" # Path of use-input .xsls
 activateTM_path = "/home/amintvm/modeling/HyBayesCal-pckg-master/env-scripts/activateTM.sh" # path of the .sh file to activate the Telemac
