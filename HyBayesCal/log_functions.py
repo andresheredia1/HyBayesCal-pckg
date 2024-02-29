@@ -11,7 +11,7 @@ logging.basicConfig(filename=logfile_path, format="[%(asctime)s] %(levelname)s: 
 def log_actions(func):
     """
     Author - Abhishek
-    A decorator function for logging errors that occur during the execution of other functions.
+    A decorator function for logging information and errors that occur during the execution of other functions.
 
     Parameters: func (function): The function being decorated.
 
