@@ -1,3 +1,8 @@
+    """
+    Stand alone python script that generates multiple runs for a Telemac simulation based on base Telemac simulation files and the input user parameteres 
+    retrieved from a *.xlsx file. Generates a matrix with the output values from the desired number of simulation runs and shows figures with graphical variation between the 
+    performed simulations. The data frame with the model outputs are the basis for the construction of a surrogate model.  
+    """
 import subprocess
 import json
 import shutil
