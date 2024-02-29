@@ -273,9 +273,11 @@ This folder constains the figures (screen shots) that used to develop the README
 9. Similarly, in the **auto-saved-results** folder you will find the `.slf`, `.txt` and `.xlsx`,  output files from the Telemac simulations and 2 graphs `data.jpg` and `average_plot.jpg`. An image of how it looks like is shown:
 ![auto-saved-results](images/Figure6.png)
 
-![data](images/Figure8.png)  
+An example of how the graphs look like are presented as follows:
 
-![average_plot](images/Figure9.png)  
+![data](images/figure8.jpg)  
+
+![average_plot](images/figure9.jpg)  
 
 An excel file with the model outputs at all nodes and at the last time step is saved in the folder **auto-saved-results**
 
