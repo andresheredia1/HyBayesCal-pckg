@@ -1,7 +1,7 @@
 import sys
 from bayesian_gpe import *
 import json
-import pdb # Needed to debug in a terminal
+import pdb # Activate this if needed to debug in a terminal. 
 class TelemacSimulations:
     """
     Class author: Andres
@@ -30,7 +30,7 @@ class TelemacSimulations:
                      
     def single_run_simulation(self,user_input_parameters):
         """
-        Executes a single Telemac simulation based on command-line arguments.
+        Executes a single Telemac simulation based on command-line arguments and from a user_parameters.json file which is created.
         :return: None
         """
         
