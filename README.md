@@ -235,6 +235,9 @@ In the following tables you will find the parameters that need to be modified to
 | .....                                           | ....                                                      |        ... |
 | ......                                          | ......                                                    |        ... |
 
+### images
+
+This folder constains the figures (screen shots) that used to develop the README.md file.  
 
 ## Steps to run the package 
 1. Since the package runs iteratively several Telemac simulations, you must ensure that Telemac is installed in your computer and properly running. For installation instructions, refer to [Telemac](https://opentelemac.org/index.php/installation). It is important to test one simulation from */home/......../......./telemac-mascaret/examples/telemac2d/* from your telemac folder. 
