@@ -1,6 +1,6 @@
 
 
-# Python Package for Bayesian Calibration from Telemac Simulations
+# "Advances" on a Python Package for Bayesian Calibration from Telemac Simulations
 
 ## Table of Contents
 
@@ -15,6 +15,11 @@
 9. [Steps to run the package ](#Steps-to-run-the-package )
 
 ***
+# Authors 
+Group name: AAA
+* Andres Heredia Hidalgo
+* Abhishek, Abhishek 
+  
 ## Project's name
 "Advances" on a Python package for Bayesian calibration from Telemac Simulations
 
@@ -280,9 +285,7 @@ An example of how the graphs look like (for one model run) are presented as foll
 An excel file with the model outputs at all nodes and at the last time step is saved in the folder **auto-saved-results**
 
 ![simulation_outputs.xlsx](images/Figure10.png) 
-# Authors 
-* Andres Heredia Hidalgo
-* Abhishek 
+
 
 # References
 * https://hydro-informatics.com/
