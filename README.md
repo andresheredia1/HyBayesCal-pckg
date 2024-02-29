@@ -290,7 +290,7 @@ An excel file with the model outputs at all nodes and at the last time step is s
 # References
 * https://hydro-informatics.com/
 * http://www.opentelemac.org/
-* https://github.com/andresheredia1/surrogated_assisted_bayesian_calibration_forked.git
+* https://github.com/eduardoAcunaEspinoza/surrogated_assisted_bayesian_calibration.git
 
 # License
 This project is licensed under the GNU.
