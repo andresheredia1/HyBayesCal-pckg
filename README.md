@@ -164,7 +164,7 @@ Additionally, the script returns a list of the random parameters that were used 
 
 * `sim_output_df`: Creates a data frame of the model outputs and saves it as an excel file `output_excel_file_name` in the folder **auto-saved-results**. 
 ***
-`plot.py`: Python script that extracts data (calibration quantity) from the model outputs `.xlsx` for specific nodes where measured data is available. Class `PlotGraph` and methods to plot graph for multiple simulation for specific node writen inside the `nodes_input.txt`. The script plots a line grapg using method `plot_data` for velocity/Water depth vs Nodes and scatter plot for mean value using method `average`. 
+`plot.py`: Python script that extracts data (calibration quantity) from the model outputs `.xlsx` for specific nodes where measured data are available. Class `PlotGraph` and methods to plot graph for multiple simulation for specific node writen inside the `nodes_input.txt`. The script plots a line graph using method `plot_data` for velocity/Water depth vs Nodes and scatter plot for mean value using method `average`. 
 ***
 
 `log_functions.py`: Python scripts that logs the actions to a logfile (LOGFILE.log). The logfile is saved in: *log_directory*  
@@ -188,7 +188,7 @@ This script works by executing subprocesses of the file called `package_launcher
 `active_learning.py`: Auxiliary functions for the stochastic calibration of model using Surrogate-Assisted Bayesian inversion
 ***
 
-`nodes_input.txt`: File contains the nodes are required or measured data are available.  
+`nodes_input.txt`: File that contains the nodes where measured data are available.  
 ***
 
 ### use-case-xlsx
@@ -271,7 +271,7 @@ This folder constains the figures (screen shots) that used to develop the README
 9. Similarly, in the **auto-saved-results** folder you will find the `.slf`, `.txt` and `.xlsx`,  output files from the Telemac simulations and 2 graphs `data.jpg` and `average_plot.jpg`. An image of how it looks like is shown:
 ![auto-saved-results](images/Figure6.png)
 
-An example of how the graphs look like are presented as follows:
+An example of how the graphs look like (for one model run) are presented as follows: 
 
 ![data](images/figure8.jpg)  
 
