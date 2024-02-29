@@ -9,16 +9,15 @@ def cas_creator(source_file, tm_model_dir, init_runs,results_filename_base,calib
     Creates .cas files for full complexity models.
 
     Parameters:
-    - source_file: Path to source file.
+    - source_file: Path to source (*.cas base) file.
     - tm_model_dir: Directory for .cas files.
-    - init_runs: Number of runs.
+    - init_runs: Number of initial runs for surrogate model construction.
     - results_filename_base: Base filename for results.
     - calib_param_range: Range for calibration parameter.
 
     Returns:
     - results_filename_list: List of generated results filenames.
     - random_param: List of random calibration parameters.
-    - random_flowrate: List of random flow rates.
 
     """    
     results_filename_list=[]
@@ -53,10 +52,9 @@ def sim_output_df(tm_model_dir, init_runs,results_filename_base,output_excel_fil
     Parameters:
     - tm_model_dir: Directory for simulation results.
     - init_runs: Number of runs.
-    - results_filename_base: Base filename for results.
-    - output_excel_file_name: Filename for Excel file.
+    - results_filename_base: Base filename for results. This is taken from each .cas file.
+    - output_excel_file_name: Filename for Excel file containing simulation outputs for the number of model runs.
     - random_param: List of random calibration parameters.
-    - random_flowrate: List of random flow rates.
 
     Returns:
     - df_outputs: DataFrame of simulation outputs.
